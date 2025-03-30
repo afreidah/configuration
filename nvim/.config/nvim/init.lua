@@ -26,7 +26,6 @@ require('packer').startup(function(use)
   use 'nvim-telescope/telescope-symbols.nvim'
   use 'nvim-treesitter/nvim-treesitter'
   use 'Yggdroot/indentLine'
-  use 'yssl/QFEnter'
 
       -- configure telescope.nvim
   use {

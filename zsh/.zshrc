@@ -48,7 +48,6 @@ export CHEF_SECRET_FILE_COLLECTION='/Users/AlexFreidah/tools/chef/encrypted_data
 # AWS stuff
 export AWS_PROFILE=default-mfa
 export AWS_DEFAULT_REGION=us-west-2
-export SOPS_KMS_ARN="arn:aws:kms:us-west-2:111713626827:key/31148ed3-aa87-4a05-9682-f44d0ab70d93,arn:aws:kms:us-east-1:111713626827:key/2e57eead-0e0d-48a7-b5d4-aec601cba964"
 
 # reverse history search
 bindkey -M viins '^r' history-incremental-search-backward
@@ -106,3 +105,6 @@ else
     fi
 fi
 unset __conda_setup
+ 
+# source private settings if they exist
+[ -f ~/.private-zshrc ] && source ~/.private-zshrc

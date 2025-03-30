@@ -158,15 +158,10 @@ _G.packer_plugins = {
     url = "https://github.com/nvim-telescope/telescope.nvim"
   },
   ["toggleterm.nvim"] = {
-    config = { "\27LJ\2\n›\1\0\0\4\0\a\0\v6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0006\3\4\0009\3\5\0039\3\6\3=\3\6\2B\0\2\1K\0\1\0\nshell\6o\bvim\1\0\5\14direction\nfloat\nshell\0\17open_mapping\n<c-\\>\tsize\3\20\18close_on_exit\2\nsetup\15toggleterm\frequire\0" },
+    config = { "\27LJ\2\n›\1\0\0\4\0\a\0\v6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0006\3\4\0009\3\5\0039\3\6\3=\3\6\2B\0\2\1K\0\1\0\nshell\6o\bvim\1\0\5\14direction\nfloat\nshell\0\18close_on_exit\2\17open_mapping\n<c-\\>\tsize\3\20\nsetup\15toggleterm\frequire\0" },
     loaded = true,
     path = "/Users/alexfreidah/.local/share/nvim/site/pack/packer/start/toggleterm.nvim",
     url = "https://github.com/akinsho/toggleterm.nvim"
-  },
-  ["unite.vim"] = {
-    loaded = true,
-    path = "/Users/alexfreidah/.local/share/nvim/site/pack/packer/start/unite.vim",
-    url = "https://github.com/Shougo/unite.vim"
   },
   ["vim-airline"] = {
     loaded = true,
@@ -178,21 +173,10 @@ _G.packer_plugins = {
     path = "/Users/alexfreidah/.local/share/nvim/site/pack/packer/start/vim-airline-themes",
     url = "https://github.com/vim-airline/vim-airline-themes"
   },
-  ["vim-be-good"] = {
-    loaded = true,
-    path = "/Users/alexfreidah/.local/share/nvim/site/pack/packer/start/vim-be-good",
-    url = "https://github.com/ThePrimeagen/vim-be-good"
-  },
   ["vim-chef"] = {
     loaded = true,
     path = "/Users/alexfreidah/.local/share/nvim/site/pack/packer/start/vim-chef",
     url = "https://github.com/t9md/vim-chef"
-  },
-  ["vim-dasht"] = {
-    config = { '\27LJ\2\n?\0\0\2\0\3\0\0056\0\0\0009\0\1\0)\1\0\0=\1\2\0K\0\1\0"dasht_enable_default_mappings\6g\bvim\0' },
-    loaded = true,
-    path = "/Users/alexfreidah/.local/share/nvim/site/pack/packer/start/vim-dasht",
-    url = "https://github.com/sunaku/vim-dasht"
   },
   ["vim-endwise"] = {
     loaded = true,
@@ -213,19 +197,18 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/alexfreidah/.local/share/nvim/site/pack/packer/start/vim-ruby",
     url = "https://github.com/vim-ruby/vim-ruby"
-  },
-  ["vim-taskwarrior"] = {
-    loaded = true,
-    path = "/Users/alexfreidah/.local/share/nvim/site/pack/packer/start/vim-taskwarrior",
-    url = "https://github.com/farseer90718/vim-taskwarrior"
   }
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: vim-dasht
-time([[Config for vim-dasht]], true)
-try_loadstring('\27LJ\2\n?\0\0\2\0\3\0\0056\0\0\0009\0\1\0)\1\0\0=\1\2\0K\0\1\0"dasht_enable_default_mappings\6g\bvim\0', "config", "vim-dasht")
-time([[Config for vim-dasht]], false)
+-- Config for: copilot.vim
+time([[Config for copilot.vim]], true)
+try_loadstring("\27LJ\2\n1\0\0\2\0\3\0\0056\0\0\0009\0\1\0)\1\1\0=\1\2\0K\0\1\0\20copilot_enabled\6g\bvim\0", "config", "copilot.vim")
+time([[Config for copilot.vim]], false)
+-- Config for: toggleterm.nvim
+time([[Config for toggleterm.nvim]], true)
+try_loadstring("\27LJ\2\n›\1\0\0\4\0\a\0\v6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0006\3\4\0009\3\5\0039\3\6\3=\3\6\2B\0\2\1K\0\1\0\nshell\6o\bvim\1\0\5\14direction\nfloat\nshell\0\18close_on_exit\2\17open_mapping\n<c-\\>\tsize\3\20\nsetup\15toggleterm\frequire\0", "config", "toggleterm.nvim")
+time([[Config for toggleterm.nvim]], false)
 -- Config for: oil.nvim
 time([[Config for oil.nvim]], true)
 try_loadstring("\27LJ\2\n1\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\boil\frequire\0", "config", "oil.nvim")
@@ -234,14 +217,6 @@ time([[Config for oil.nvim]], false)
 time([[Config for ayu-vim]], true)
 try_loadstring("\27LJ\2\nU\0\0\3\0\6\0\t6\0\0\0009\0\1\0'\1\3\0=\1\2\0006\0\0\0009\0\4\0'\2\5\0B\0\2\1K\0\1\0\20colorscheme ayu\bcmd\vmirage\rayucolor\6g\bvim\0", "config", "ayu-vim")
 time([[Config for ayu-vim]], false)
--- Config for: toggleterm.nvim
-time([[Config for toggleterm.nvim]], true)
-try_loadstring("\27LJ\2\n›\1\0\0\4\0\a\0\v6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0006\3\4\0009\3\5\0039\3\6\3=\3\6\2B\0\2\1K\0\1\0\nshell\6o\bvim\1\0\5\14direction\nfloat\nshell\0\17open_mapping\n<c-\\>\tsize\3\20\18close_on_exit\2\nsetup\15toggleterm\frequire\0", "config", "toggleterm.nvim")
-time([[Config for toggleterm.nvim]], false)
--- Config for: copilot.vim
-time([[Config for copilot.vim]], true)
-try_loadstring("\27LJ\2\n1\0\0\2\0\3\0\0056\0\0\0009\0\1\0)\1\1\0=\1\2\0K\0\1\0\20copilot_enabled\6g\bvim\0", "config", "copilot.vim")
-time([[Config for copilot.vim]], false)
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then

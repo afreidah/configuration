@@ -20,7 +20,6 @@ require('packer').startup(function(use)
   use 'vim-airline/vim-airline-themes' -- Airline themes for different looks
   use 'echasnovski/mini.icons'
   use 'nvim-tree/nvim-web-devicons'
-  use 'ThePrimeagen/vim-be-good'
   use 't9md/vim-chef'
   use 'weizheheng/nvim-workbench'
   use 'NeogitOrg/neogit'
@@ -29,46 +28,7 @@ require('packer').startup(function(use)
   use 'Yggdroot/indentLine'
   use 'yssl/QFEnter'
 
-  use {
-    "huantrinh1802/m_taskwarrior_d.nvim",
-    config = function()
-      require("m_taskwarrior_d").setup()
-      vim.api.nvim_set_keymap("n", "<leader>te", "<cmd>TWEditTask<cr>", { desc = "TaskWarrior Edit", noremap = true, silent = true })
-      vim.api.nvim_set_keymap("n", "<leader>tv", "<cmd>TWView<cr>", { noremap = true, silent = true })
-      vim.api.nvim_set_keymap("n", "<leader>tu", "<cmd>TWUpdateCurrent<cr>", { noremap = true, silent = true })
-      vim.api.nvim_set_keymap("n", "<leader>ts", "<cmd>TWSyncTasks<cr>", { noremap = true, silent = true })
-      vim.api.nvim_set_keymap(
-        "n",
-        "<c-space>",
-        "<cmd>TWToggle<cr>",
-        { silent = true }
-      )
-      vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost" }, {
-        group = vim.api.nvim_create_augroup("TWTask", { clear = true }),
-        pattern = "*.md,*.markdown", -- Pattern to match Markdown files
-        callback = function()
-          vim.cmd('TWSyncTasks')
-        end,
-      })
-    end,
-  }
-
-  use {
-      'farseer90718/vim-taskwarrior',
-      requires = {
-        {'vim-airline/vim-airline'},
-        {'Shougo/unite.vim'}
-      }
-  }
-
-  use {
-    "sunaku/vim-dasht",
-    config = function()
-      vim.g.dasht_enable_default_mappings = 0
-    end
-  }
-
-  -- configure telescope.nvim
+      -- configure telescope.nvim
   use {
     'nvim-telescope/telescope.nvim',
     requires = {
@@ -105,7 +65,6 @@ require('packer').startup(function(use)
       vim.g.copilot_enabled = 1
     end
   }
-
 
   -- setup ayi-vim theme
   use {

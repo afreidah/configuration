@@ -9,6 +9,7 @@ if ! command -v cinc-solo >/dev/null 2>&1; then
 fi
 
 # RUN CHEF
+gem install bundler
 bundle install
 bundle exec berks update
 bundle exec berks install

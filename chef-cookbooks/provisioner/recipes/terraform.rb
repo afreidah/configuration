@@ -22,7 +22,6 @@ bash 'install_tfenv' do
   user node['provisioner']['user']
   group node['provisioner']['group']
   action :nothing
-  not_if { node['platform'] == 'mac_os_x' }
 end
 
 # Install Terraform using tfenv

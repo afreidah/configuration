@@ -1,0 +1,11 @@
+source 'https://rubygems.org'
+
+ruby '3.3.0'
+
+gem 'test-kitchen'
+gem 'kitchen-vagrant'
+gem 'serverspec'
+gem 'berkshelf'
+gem 'colorize'
+gem 'cinc'
+gem 'cookstyle'

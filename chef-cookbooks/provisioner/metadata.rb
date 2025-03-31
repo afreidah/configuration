@@ -7,3 +7,4 @@ description 'A cookbook to handle provisioning of my settings'
 version '0.1.0'
 chef_version '>= 16.0'
 
+depends 'homebrew', '~> 6.0.1'

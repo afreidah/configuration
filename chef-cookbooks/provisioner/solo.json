@@ -1,0 +1,4 @@
+{
+  "name": "cinc-solo-provisioner",
+  "run_list": ["recipe[provisioner::default]"]
+}

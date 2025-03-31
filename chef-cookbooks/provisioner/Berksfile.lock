@@ -1,0 +1,10 @@
+DEPENDENCIES
+  homebrew (~> 6.0.1)
+  provisioner
+    path: .
+    metadata: true
+
+GRAPH
+  homebrew (6.0.1)
+  provisioner (0.1.0)
+    homebrew (~> 6.0.1)

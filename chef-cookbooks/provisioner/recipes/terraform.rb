@@ -1,3 +1,9 @@
+=begin
+#<
+Installs Terraform and Terragrunt using tfenv and the latest stable version of Terragrunt respectively.
+#>
+=end
+
 # Directory where Terraform will be installed
 terraform_dir = node['platform'] == 'mac_os_x' ? '/opt/homebrew/bin' : '/usr/local/bin'
 

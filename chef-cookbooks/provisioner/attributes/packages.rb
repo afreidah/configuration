@@ -1,7 +1,7 @@
-## Description: List of packages to install on the system
+#<> Description: List of packages to install on the system
 ##
 
-# linux specific packages
+#<> linux specific packages
 default['provisioner']['x86_64_packages'] = %w(
   build_essential
   libssl-dev
@@ -9,7 +9,7 @@ default['provisioner']['x86_64_packages'] = %w(
   zlib1g-dev
 )
 
-# osx specific packages
+#<> osx specific packages
 default['provisioner']['arm64_packages'] = %w(
   tfenv
   tmuxinator-completion
@@ -18,7 +18,7 @@ default['provisioner']['arm64_packages'] = %w(
   buildkit
 )
 
-# commmon packages
+#<> commmon packages
 default['provisioner']['packages'] = %w(
   awscli
   nvim

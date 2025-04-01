@@ -1,4 +1,9 @@
-# Install packages with Homebrew on macOS or package manager on Linux
+=begin
+#<
+Installs packages based on the platform. The packages are defined in the node attributes.
+#>
+=end
+
 case node['platform']
 when 'mac_os_x'
   include_recipe 'homebrew::default'

@@ -1,4 +1,9 @@
-# install specific ruby
+=begin
+#<
+Installs Ruby using rbenv. The Ruby version is defined in the node attributes.
+#>
+=end
+
 bash 'install ruby' do
   code <<-EOH
     rbenv install #{node['provisioner']['ruby_version']}

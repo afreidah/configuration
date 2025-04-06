@@ -38,6 +38,7 @@ export TERM="xterm-256color"
 export DOCKER_BUILDKIT=1
 export CHEF_API_CLIENT='afreidah'
 export PATH="/Users/AlexFreidah/.mynav:$PATH"
+export PATH="/Users/AlexFreidah/tools:$PATH"
 export PATH="$HOME/.tfenv/bin:$PATH"
 export PATH="/Users/alexfreidah/.local/bin:$PATH"
 source '/Users/AlexFreidah/repos/edo-chef/.chefrc'
@@ -61,8 +62,10 @@ export TERRAGRUNT_DOWNLOAD=/tmp/terragrunt_caches
 # TODO: these are strays
 # mcfly history search
 export PACKER_SSH_KEY="$HOME/.ssh/id_rsa"
-export LDFLAGS="-L/usr/local/opt/libffi/lib"
-export CPPFLAGS="-I/usr/local/opt/libffi/include"
+#export LDFLAGS="-L/opt/homebrew/opt/libffi/lib"
+#export CPPFLAGS="-I/opt/homebrew/opt/libffi/include"
+#export PKG_CONFIG_PATH="/opt/homebrew/opt/libffi/lib/pkgconfig"
+export PKG_CONFIG_PATH="/opt/homebrew/Cellar/libffi/3.4.7/lib/pkgconfig/"
 setopt auto_cd
 
 # SSH stuff for osx
@@ -80,14 +83,21 @@ export PATH="/opt/homebrew/opt/mysql-client/bin:$PATH"
 source <(fzf --zsh)
 fpath+=~/.zfunc; autoload -Uz compinit; compinit
 
+# for kitchen completions
+  fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
+
 # testing out mcfly intelligent history search
 eval "$(mcfly init zsh)"
 export MCFLY_KEY_SCHEME=vim
 
 # text formatter aliases
-alias format_c="find . -regex '.*\.\(cpp\|hpp\|cu\|cuh\|c\|h\)' -exec clang-format -style=file -i {} \;"
-alias format_terraform="terragrunt fmt"
-alias format_ruby="bundle exec rubocop -a"
+alias c_format="find . -regex '.*\.\(cpp\|hpp\|cu\|cuh\|c\|h\)' -exec clang-format -style=file -i {} \;"
+alias terraform_format="terragrunt fmt"
+alias terraform_doc="terraform-docs --hide modules --output-file README.md --output-mode inject markdown ./"
+alias ruby_format="bundle exec rubocop -a"
+alias python_format="black ."
+alias python_doc="pydoc-markdown -I $(pwd) > README.md"
+alias chef_format="cookstyle"
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"

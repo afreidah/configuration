@@ -2,24 +2,26 @@
 ##
 
 #<> linux specific packages
-default['provisioner']['x86_64_packages'] = %w(
+linux_packages =  = %w(  # 
   build_essential
   libssl-dev
   libreadline-dev 
   zlib1g-dev
 )
+default['provisioner']['x86_64_packages'] = linux_packages
 
 #<> osx specific packages
-default['provisioner']['arm64_packages'] = %w(
+osx_packages = %w(
   tfenv
   tmuxinator-completion
   clang-format 
   minikube
   buildkit
 )
+default['provisioner']['arm64_packages']  = osx_packages
 
 #<> commmon packages
-default['provisioner']['packages'] = %w(
+common_packages = %w(
   awscli
   nvim
   zsh
@@ -51,3 +53,4 @@ default['provisioner']['packages'] = %w(
   yq
   bat
 )
+default['provisioner']['packages'] = common_packages

@@ -106,6 +106,12 @@ _G.packer_plugins = {
     path = "/Users/alexfreidah/.local/share/nvim/site/pack/packer/start/neogit",
     url = "https://github.com/NeogitOrg/neogit"
   },
+  ["nvim-autopairs"] = {
+    config = { "\27LJ\2\n@\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\19nvim-autopairs\frequire\0" },
+    loaded = true,
+    path = "/Users/alexfreidah/.local/share/nvim/site/pack/packer/start/nvim-autopairs",
+    url = "https://github.com/windwp/nvim-autopairs"
+  },
   ["nvim-treesitter"] = {
     loaded = true,
     path = "/Users/alexfreidah/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
@@ -153,7 +159,7 @@ _G.packer_plugins = {
     url = "https://github.com/nvim-telescope/telescope.nvim"
   },
   ["toggleterm.nvim"] = {
-    config = { "\27LJ\2\n›\1\0\0\4\0\a\0\v6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0006\3\4\0009\3\5\0039\3\6\3=\3\6\2B\0\2\1K\0\1\0\nshell\6o\bvim\1\0\5\nshell\0\14direction\nfloat\17open_mapping\n<c-\\>\tsize\3\20\18close_on_exit\2\nsetup\15toggleterm\frequire\0" },
+    config = { "\27LJ\2\n›\1\0\0\4\0\a\0\v6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0006\3\4\0009\3\5\0039\3\6\3=\3\6\2B\0\2\1K\0\1\0\nshell\6o\bvim\1\0\5\18close_on_exit\2\14direction\nfloat\17open_mapping\n<c-\\>\tsize\3\20\nshell\0\nsetup\15toggleterm\frequire\0" },
     loaded = true,
     path = "/Users/alexfreidah/.local/share/nvim/site/pack/packer/start/toggleterm.nvim",
     url = "https://github.com/akinsho/toggleterm.nvim"
@@ -188,6 +194,11 @@ _G.packer_plugins = {
     path = "/Users/alexfreidah/.local/share/nvim/site/pack/packer/start/vim-gitgutter",
     url = "https://github.com/airblade/vim-gitgutter"
   },
+  ["vim-polyglot"] = {
+    loaded = true,
+    path = "/Users/alexfreidah/.local/share/nvim/site/pack/packer/start/vim-polyglot",
+    url = "https://github.com/sheerun/vim-polyglot"
+  },
   ["vim-ruby"] = {
     loaded = true,
     path = "/Users/alexfreidah/.local/share/nvim/site/pack/packer/start/vim-ruby",
@@ -200,10 +211,6 @@ time([[Defining packer_plugins]], false)
 time([[Config for ayu-vim]], true)
 try_loadstring("\27LJ\2\nU\0\0\3\0\6\0\t6\0\0\0009\0\1\0'\1\3\0=\1\2\0006\0\0\0009\0\4\0'\2\5\0B\0\2\1K\0\1\0\20colorscheme ayu\bcmd\vmirage\rayucolor\6g\bvim\0", "config", "ayu-vim")
 time([[Config for ayu-vim]], false)
--- Config for: toggleterm.nvim
-time([[Config for toggleterm.nvim]], true)
-try_loadstring("\27LJ\2\n›\1\0\0\4\0\a\0\v6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0006\3\4\0009\3\5\0039\3\6\3=\3\6\2B\0\2\1K\0\1\0\nshell\6o\bvim\1\0\5\nshell\0\14direction\nfloat\17open_mapping\n<c-\\>\tsize\3\20\18close_on_exit\2\nsetup\15toggleterm\frequire\0", "config", "toggleterm.nvim")
-time([[Config for toggleterm.nvim]], false)
 -- Config for: oil.nvim
 time([[Config for oil.nvim]], true)
 try_loadstring("\27LJ\2\n1\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\boil\frequire\0", "config", "oil.nvim")
@@ -212,6 +219,14 @@ time([[Config for oil.nvim]], false)
 time([[Config for copilot.vim]], true)
 try_loadstring("\27LJ\2\n1\0\0\2\0\3\0\0056\0\0\0009\0\1\0)\1\1\0=\1\2\0K\0\1\0\20copilot_enabled\6g\bvim\0", "config", "copilot.vim")
 time([[Config for copilot.vim]], false)
+-- Config for: nvim-autopairs
+time([[Config for nvim-autopairs]], true)
+try_loadstring("\27LJ\2\n@\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\19nvim-autopairs\frequire\0", "config", "nvim-autopairs")
+time([[Config for nvim-autopairs]], false)
+-- Config for: toggleterm.nvim
+time([[Config for toggleterm.nvim]], true)
+try_loadstring("\27LJ\2\n›\1\0\0\4\0\a\0\v6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0006\3\4\0009\3\5\0039\3\6\3=\3\6\2B\0\2\1K\0\1\0\nshell\6o\bvim\1\0\5\18close_on_exit\2\14direction\nfloat\17open_mapping\n<c-\\>\tsize\3\20\nshell\0\nsetup\15toggleterm\frequire\0", "config", "toggleterm.nvim")
+time([[Config for toggleterm.nvim]], false)
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then

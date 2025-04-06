@@ -26,6 +26,15 @@ require('packer').startup(function(use)
   use 'nvim-telescope/telescope-symbols.nvim'
   use 'nvim-treesitter/nvim-treesitter'
   use 'Yggdroot/indentLine'
+  use 'sheerun/vim-polyglot'
+
+  -- configure nvim-autopairs
+  use {
+    'windwp/nvim-autopairs',
+    config = function()
+      require('nvim-autopairs').setup{}
+    end
+  }
 
       -- configure telescope.nvim
   use {

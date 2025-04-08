@@ -27,6 +27,7 @@ require('packer').startup(function(use)
   use 'nvim-treesitter/nvim-treesitter'
   use 'Yggdroot/indentLine'
   use 'sheerun/vim-polyglot'
+  use 'yegappan/taglist'
 
   -- configure nvim-autopairs
   use {

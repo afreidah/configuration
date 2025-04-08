@@ -1,11 +1,9 @@
-=begin
-#<
-Installs packages based on the platform. The packages are defined in the node attributes.
-#>
-=end
+# #<
+# Installs packages based on the platform. The packages are defined in the node attributes.
+# >
 
 case node['platform']
-when 'mac_os_x'
+when 'mac_os_x'
   include_recipe 'homebrew::default'
 
   (node['provisioner']['packages'] + node['provisioner']['arm64_packages']).each do |pkg|

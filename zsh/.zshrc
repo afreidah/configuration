@@ -19,6 +19,7 @@ source $ZSH/oh-my-zsh.sh
 alias vi="nvim"
 alias vim="nvim"
 alias ls="ls -ltrG"
+alias be="bundle exec"
 alias tmx="tmuxinator"
 alias ta="tmux attach -t"
 alias zsrc="source ~/.zshrc"
@@ -41,6 +42,8 @@ export PATH="/Users/AlexFreidah/.mynav:$PATH"
 export PATH="/Users/AlexFreidah/tools:$PATH"
 export PATH="$HOME/.tfenv/bin:$PATH"
 export PATH="/Users/alexfreidah/.local/bin:$PATH"
+export PATH="/opt/homebrew/opt/ruby@3.1/bin:$PATH"
+
 source '/Users/AlexFreidah/repos/edo-chef/.chefrc'
 export CHEF_API_KEY='/Users/AlexFreidah/tools/chef/afreidah.pem'
 export CHEF_SECRET_FILE='/Users/AlexFreidah/tools/chef/encrypted_data_bag_secret'
@@ -99,10 +102,6 @@ alias python_format="black ."
 alias python_doc="pydoc-markdown -I $(pwd) > README.md"
 alias chef_format="cookstyle"
 
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
-
 # >>> conda initialize >>>
 __conda_setup="$('/opt/homebrew/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
@@ -118,3 +117,8 @@ unset __conda_setup
  
 # source private settings if they exist
 [ -f ~/.private-zshrc ] && source ~/.private-zshrc
+
+# mann function for reading man pages in vim
+function mann {
+man $1 | ul -i | nvim -
+}

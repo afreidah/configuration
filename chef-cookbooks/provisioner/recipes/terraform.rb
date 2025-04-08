@@ -1,11 +1,9 @@
-=begin
-#<
-Installs Terraform and Terragrunt using tfenv and the latest stable version of Terragrunt respectively.
-#>
-=end
+# #<
+# Installs Terraform and Terragrunt using tfenv and the latest stable version of Terragrunt respectively.
+# >
 
 # Directory where Terraform will be installed
-terraform_dir = node['platform'] == 'mac_os_x' ? '/opt/homebrew/bin' : '/usr/local/bin'
+terraform_dir = platform?('mac_os_x') ? '/opt/homebrew/bin' : '/usr/local/bin'
 
 # Install tfenv (Terraform version manager)
 git "#{terraform_dir}/tfenv" do
@@ -15,7 +13,7 @@ git "#{terraform_dir}/tfenv" do
   user node['provisioner']['user']
   group node['provisioner']['group']
   notifies :run, 'bash[install_tfenv]', :immediately
-  not_if { node['platform'] == 'mac_os_x' }
+  not_if { platform?('mac_os_x') }
 end
 
 bash 'install_tfenv' do
@@ -32,7 +30,7 @@ end
 
 # Install Terraform using tfenv
 execute 'install_terraform' do
-  command "#{terraform_dir}/tfenv install 1.10.4"  # Specify the desired version of Terraform here
+  command "#{terraform_dir}/tfenv install 1.10.4" # Specify the desired version of Terraform here
   action :run
   not_if { ::File.exist?("#{terraform_dir}/terraform") }
   user node['provisioner']['user']
@@ -41,7 +39,7 @@ end
 
 # Ensure the correct version of Terraform is set globally with tfenv
 execute 'set_terraform_version' do
-  command "#{terraform_dir}/tfenv use 1.10.4"  # Specify the desired version of Terraform here
+  command "#{terraform_dir}/tfenv use 1.10.4" # Specify the desired version of Terraform here
   action :run
   user node['provisioner']['user']
   group node['provisioner']['group']

@@ -2,7 +2,7 @@
 ##
 
 #<> linux specific packages
-linux_packages =  = %w(  # 
+linux_packages =  = %w(
   build_essential
   libssl-dev
   libreadline-dev 

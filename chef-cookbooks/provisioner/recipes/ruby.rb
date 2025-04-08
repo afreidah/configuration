@@ -1,8 +1,6 @@
-=begin
-#<
-Installs Ruby using rbenv. The Ruby version is defined in the node attributes.
-#>
-=end
+# #<
+# Installs Ruby using rbenv. The Ruby version is defined in the node attributes.
+# >
 
 bash 'install ruby' do
   code <<-EOH

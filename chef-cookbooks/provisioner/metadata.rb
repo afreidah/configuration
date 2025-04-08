@@ -11,5 +11,4 @@ chef_version '>= 16.0'
   supports os
 end
 
-
 depends 'homebrew', '~> 6.0.1'

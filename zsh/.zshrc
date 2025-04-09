@@ -43,6 +43,11 @@ export PATH="/Users/AlexFreidah/tools:$PATH"
 export PATH="$HOME/.tfenv/bin:$PATH"
 export PATH="/Users/alexfreidah/.local/bin:$PATH"
 export PATH="/opt/homebrew/opt/ruby@3.1/bin:$PATH"
+export PATH="$HOME/.rbenv/bin:$PATH"
+
+# rbenv stuff
+eval "$(rbenv init -)"
+
 
 source '/Users/AlexFreidah/repos/edo-chef/.chefrc'
 export CHEF_API_KEY='/Users/AlexFreidah/tools/chef/afreidah.pem'

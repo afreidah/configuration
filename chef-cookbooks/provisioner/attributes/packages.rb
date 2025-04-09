@@ -22,6 +22,7 @@ default['provisioner']['arm64_packages']  = osx_packages
 
 #<> commmon packages
 common_packages = %w(
+  virtualbox
   awscli
   nvim
   zsh

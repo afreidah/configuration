@@ -12,7 +12,7 @@ when 'mac_os_x'
     end
   end
 
-when 'ubuntu', 'debian', 'centos', 'redhat'
+when 'ubuntu', 'debian'
   (node['provisioner']['packages'] + node['provisioner']['x86_64_packages']).each do |pkg|
     package pkg do
       action :install

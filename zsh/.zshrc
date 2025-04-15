@@ -1,5 +1,7 @@
 # ZSH configuration including oh-my-zsh and plugins
-ZSH_THEME="jnrowe"
+#ZSH_THEME="jnrowe"
+ZSH_THEME="catppuccin"
+CATPPUCCIN_FLAVOR="mocha" # Required! Options: mocha, flappe, macchiato, latte
 ENABLE_CORRECTION="true"
 ZSH_AUTOSUGGEST_USE_ASYNC=1
 ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE="20"
@@ -27,8 +29,19 @@ alias ghe="gh copilot explain"
 alias ghs="gh copilet suggest"
 alias zshconfig="vim ~/.zshrc"
 alias fzf="fzf --color=dark --tmux center"
+alias vimcfg="vim ~/config/nvim/.config/nvim/init.lua"
+alias tmuxcfg="vim ~/.tmux.conf"
 alias cat="pygmentize -f terminal256 -O style=native -g"
 alias terragruntreset="terragrunt destroy --auto-approve; rm -rf /tmp/terragrunt_cache; rm .terraform.lock.hcl; terragrunt init -upgrade"
+alias egrep="egrep -i --color=\"always\""
+
+# test kitchen aliases
+alias kl="kitchen list"
+alias kc="kitchen converge"
+alias kd="kitchen destroy"
+alias kt="kitchen test"
+alias kv="kitchen verify"
+alias klog="kitchen login"
 
 # editor stuff
 set -o vi
@@ -42,12 +55,8 @@ export PATH="/Users/AlexFreidah/.mynav:$PATH"
 export PATH="/Users/AlexFreidah/tools:$PATH"
 export PATH="$HOME/.tfenv/bin:$PATH"
 export PATH="/Users/alexfreidah/.local/bin:$PATH"
+export PATH="/Users/alexfreidah/.local/share/gem/ruby/3.3.0/bin:$PATH"
 export PATH="/opt/homebrew/opt/ruby@3.1/bin:$PATH"
-export PATH="$HOME/.rbenv/bin:$PATH"
-
-# rbenv stuff
-eval "$(rbenv init -)"
-
 
 source '/Users/AlexFreidah/repos/edo-chef/.chefrc'
 export CHEF_API_KEY='/Users/AlexFreidah/tools/chef/afreidah.pem'
@@ -127,3 +136,9 @@ unset __conda_setup
 function mann {
 man $1 | ul -i | nvim -
 }
+
+# rvm stuff
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+export PATH="$PATH:$HOME/.rvm/bin"
+
+source ~/.zsh/catppuccin_mocha-zsh-syntax-highlighting.zsh

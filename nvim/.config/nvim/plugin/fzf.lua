@@ -1,0 +1,5 @@
+vim.api.nvim_set_keymap('n', '<leader>gg', ':GFiles?<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>fg', ':GFiles<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>fd', ':Files<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>rg', ':Rg<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>Rg', ':RG<CR>', { noremap = true, silent = true })

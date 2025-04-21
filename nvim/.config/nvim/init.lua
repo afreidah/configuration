@@ -11,29 +11,74 @@ ensure_packer()
 
 -- install required packages
 require('packer').startup(function(use)
---  use 'tpope/vim-fugitive'           -- Git integration
+  -- use 'tpope/vim-fugitive'           -- Git integration
+  -- use 'vimpostor/vim-tpipeline'
+  use 't9md/vim-chef'
+  use 'nvim-treesitter/nvim-treesitter'
   use 'airblade/vim-gitgutter'       -- Git diff in the gutter
   use 'nvim-lua/plenary.nvim'        -- Required for Copilot Chat
   use 'echasnovski/mini.icons'
-  use 't9md/vim-chef'
   use 'weizheheng/nvim-workbench'
+  use 'kuznetsss/shswitch'
+  use 'aquasecurity/vim-tfsec'
+  use 'honza/vim-snippets'
+  use 'jlanzarotta/bufexplorer'
   use 'NeogitOrg/neogit'
-  use 'nvim-telescope/telescope-symbols.nvim'
-  use 'nvim-treesitter/nvim-treesitter'
   use 'Yggdroot/indentLine'
+  use 'liuchengxu/vista.vim'
   use 'yegappan/taglist'
   use 'DaikyXendo/nvim-material-icon'
-  use 'p00f/nvim-ts-rainbow'
   use 'dense-analysis/ale'
   use 'preservim/tagbar'
+  use 'nvim-tree/nvim-web-devicons'
+  use 'sbulav/telescope-terraform.nvim'
   use 'preservim/nerdtree'
+  use 'neovim/nvim-lspconfig'
+  use 'hrsh7th/nvim-cmp'
+  use 'hrsh7th/cmp-nvim-lsp'
+  use 'VonHeikemen/lsp-zero.nvim'
+  use 'williamboman/mason.nvim'
+  use 'danchoi/ri.vim'
   use { "catppuccin/nvim", as = "catppuccin" }
---  use 'vimpostor/vim-tpipeline'
+  use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+  use {'akinsho/bufferline.nvim', tag = "*", requires = 'nvim-tree/nvim-web-devicons'}
+
+  use{
+    "L3MON4D3/LuaSnip",
+    run = "make install_jsregexp"
+  }
+
+
+  use {
+    'junegunn/fzf',
+    run = './install --all'  -- same as fzf#install()
+  }
+
+  use 'junegunn/fzf.vim'
+  vim.keymap.set("n", "<leader>r", "<cmd>Rg<cr>", { desc = "(ripgrep to search file contents)" })
+
+  use {
+    'folke/trouble.nvim',
+    requires = { 'nvim-tree/nvim-web-devicons' }, -- optional dependency
+    cmd = { 'Trouble' },
+    config = function()
+      require("trouble").setup {} -- empty opts for default config
+      -- Keybindings
+      vim.keymap.set("n", "<leader>xx", "<cmd>Trouble diagnostics toggle<cr>", { desc = "Diagnostics (Trouble)" })
+      vim.keymap.set("n", "<leader>xX", "<cmd>Trouble diagnostics toggle filter.buf=0<cr>", { desc = "Buffer Diagnostics (Trouble)" })
+      vim.keymap.set("n", "<leader>cs", "<cmd>Trouble symbols toggle focus=false<cr>", { desc = "Symbols (Trouble)" })
+      vim.keymap.set("n", "<leader>cl", "<cmd>Trouble lsp toggle focus=false win.position=right<cr>", { desc = "LSP Definitions / references / ..." })
+      vim.keymap.set("n", "<leader>xL", "<cmd>Trouble loclist toggle<cr>", { desc = "Location List (Trouble)" })
+      vim.keymap.set("n", "<leader>xQ", "<cmd>Trouble qflist toggle<cr>", { desc = "Quickfix List (Trouble)" })
+    end
+  }
+
+  --
 --
-  use({
-    "aserowy/tmux.nvim",
-    config = function() return require("tmux").setup() end
-  })
+  -- use({
+  --   "aserowy/tmux.nvim",
+  --   config = function() return require("tmux").setup() end
+  -- })
 
   -- configure lua-line
   use {
@@ -49,12 +94,13 @@ require('packer').startup(function(use)
     end
   }
 
-      -- configure telescope.nvim
+  -- configure telescope.nvim
+  use 'nvim-telescope/telescope-symbols.nvim'
+  use {'nvim-telescope/telescope-ui-select.nvim' }
   use {
     'nvim-telescope/telescope.nvim',
     requires = {
         {'nvim-lua/plenary.nvim'},
-        { "sbulav/telescope-terraform.nvim" }
     }
   }
 
@@ -72,18 +118,23 @@ require('packer').startup(function(use)
     end
   }
 
-  -- configure copilot-chat
+   -- configure copilot.vim
+  use {
+      'github/copilot.vim',
+      config = function()
+        require("copilot").setup({})
+      end
+    }
+
+  -- -- configure copilot-chat
   use {
     'CopilotC-Nvim/CopilotChat.nvim',
-    build = "make tiktoken",
     requires = {{'github/copilot.vim'}, {'nvim-lua/plenary.nvim', branch = 'master'}},
-  }
-
---  -- configure copilot.vim
-  use {
-    'github/copilot.vim',
     config = function()
-      vim.g.copilot_enabled = 1
+      require("copilot-chat").setup {
+        build = "make tiktoken",
+        opts = {}
+      }
     end
   }
 

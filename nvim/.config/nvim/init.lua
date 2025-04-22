@@ -11,8 +11,8 @@ ensure_packer()
 
 -- install required packages
 require('packer').startup(function(use)
-  -- use 'tpope/vim-fugitive'           -- Git integration
-  -- use 'vimpostor/vim-tpipeline'
+--  -- use 'tpope/vim-fugitive'           -- Git integration
+--  -- use 'vimpostor/vim-tpipeline'
   use 't9md/vim-chef'
   use 'nvim-treesitter/nvim-treesitter'
   use 'airblade/vim-gitgutter'       -- Git diff in the gutter
@@ -37,26 +37,20 @@ require('packer').startup(function(use)
   use 'hrsh7th/nvim-cmp'
   use 'hrsh7th/cmp-nvim-lsp'
   use 'VonHeikemen/lsp-zero.nvim'
-  use 'williamboman/mason.nvim'
-  use 'danchoi/ri.vim'
+--  use 'williamboman/mason.nvim'
+--  use 'danchoi/ri.vim'
   use { "catppuccin/nvim", as = "catppuccin" }
   use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
   use {'akinsho/bufferline.nvim', tag = "*", requires = 'nvim-tree/nvim-web-devicons'}
-
-  use{
-    "L3MON4D3/LuaSnip",
-    run = "make install_jsregexp"
-  }
-
-
+--
   use {
     'junegunn/fzf',
     run = './install --all'  -- same as fzf#install()
   }
-
+--
   use 'junegunn/fzf.vim'
   vim.keymap.set("n", "<leader>r", "<cmd>Rg<cr>", { desc = "(ripgrep to search file contents)" })
-
+--
   use {
     'folke/trouble.nvim',
     requires = { 'nvim-tree/nvim-web-devicons' }, -- optional dependency
@@ -75,10 +69,10 @@ require('packer').startup(function(use)
 
   --
 --
-  -- use({
-  --   "aserowy/tmux.nvim",
-  --   config = function() return require("tmux").setup() end
-  -- })
+--  -- use({
+--  --   "aserowy/tmux.nvim",
+--  --   config = function() return require("tmux").setup() end
+--  -- })
 
   -- configure lua-line
   use {
@@ -103,7 +97,7 @@ require('packer').startup(function(use)
         {'nvim-lua/plenary.nvim'},
     }
   }
-
+--
   -- telescope-file-browser stuff
   use {
     "nvim-telescope/telescope-file-browser.nvim",
@@ -117,7 +111,7 @@ require('packer').startup(function(use)
       require("oil").setup()
     end
   }
-
+--
    -- configure copilot.vim
   use {
       'github/copilot.vim',

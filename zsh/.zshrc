@@ -142,3 +142,5 @@ man $1 | ul -i | nvim -
 export PATH="$PATH:$HOME/.rvm/bin"
 
 source ~/.zsh/catppuccin_mocha-zsh-syntax-highlighting.zsh
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

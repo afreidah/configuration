@@ -1,0 +1,7 @@
+[font.normal]
+family = "Hack Nerd Font Mono"
+
+[general]
+    import = ["~/.config/alacritty/catppuccin-macchiato.toml"]
+#    import = ["~/.config/alacritty/catppuccin-mocha.toml"]
+#    import = ["~/.config/alacritty/catppuccin-frappe.toml"]

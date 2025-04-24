@@ -1,8 +1,7 @@
 # ZSH configuration including oh-my-zsh and plugins
-#ZSH_THEME="jnrowe"
 ZSH_THEME="catppuccin"
 CATPPUCCIN_FLAVOR="mocha" # Required! Options: mocha, flappe, macchiato, latte
-ENABLE_CORRECTION="true"
+ENABLE_CORRECTION="false"
 ZSH_AUTOSUGGEST_USE_ASYNC=1
 ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE="20"
 
@@ -18,35 +17,48 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 
 # general aliases
-alias vi="nvim"
-alias vim="nvim"
 alias ls="ls -ltrG"
 alias be="bundle exec"
-alias tmx="tmuxinator"
-alias ta="tmux attach -t"
-alias zsrc="source ~/.zshrc"
+alias cat="pygmentize -f terminal256 -O style=native -g"
+alias egrep="egrep -i --color=\"always\""
+
+# copilot aliases
 alias ghe="gh copilot explain"
 alias ghs="gh copilet suggest"
-alias zshconfig="vim ~/.zshrc"
-alias fzf="fzf --color=dark --tmux center"
-alias vimcfg="vim ~/config/nvim/.config/nvim/init.lua"
+
+# tmux aliases
+alias tmux='tmux -u'
+alias tmx="tmuxinator"
+alias ta="tmux attach -t"
 alias tmuxcfg="vim ~/.tmux.conf"
-alias cat="pygmentize -f terminal256 -O style=native -g"
-alias terragruntreset="terragrunt destroy --auto-approve; rm -rf /tmp/terragrunt_cache; rm .terraform.lock.hcl; terragrunt init -upgrade"
-alias egrep="egrep -i --color=\"always\""
+
+# vim aliases
+alias vi="nvim"
+alias vim="nvim"
+alias vimcfg="vim ~/config/nvim/.config/nvim/init.lua"
+
+# zsh aliases
+alias zsrc="source ~/.zshrc"
+alias zshconfig="vim ~/.zshrc"
+
+# terraform/terragrunt aliases
+alias tp="terragrunt plan"
+alias ta="terragrunt apply"
+alias ti="terragrunt init -upgrade"
+alias tip="terragrunt init -upgrade; terragrunt plan"
 
 # test kitchen aliases
 alias kl="kitchen list"
-alias kc="kitchen converge"
-alias kd="kitchen destroy"
 alias kt="kitchen test"
 alias kv="kitchen verify"
+alias kd="kitchen destroy"
 alias klog="kitchen login"
+alias kc="kitchen converge"
 
 # editor stuff
 set -o vi
 export EDITOR='nvim'
-export TERM="xterm-256color"
+export TERM="tmux-256color"
 
 #Chef stuff
 export DOCKER_BUILDKIT=1
@@ -76,12 +88,8 @@ export GOPATH=~/go
 export PATH="$PATH:$GOPATH/bin"
 export TERRAGRUNT_DOWNLOAD=/tmp/terragrunt_caches
 
-# TODO: these are strays
-# mcfly history search
+# these are strays
 export PACKER_SSH_KEY="$HOME/.ssh/id_rsa"
-#export LDFLAGS="-L/opt/homebrew/opt/libffi/lib"
-#export CPPFLAGS="-I/opt/homebrew/opt/libffi/include"
-#export PKG_CONFIG_PATH="/opt/homebrew/opt/libffi/lib/pkgconfig"
 export PKG_CONFIG_PATH="/opt/homebrew/Cellar/libffi/3.4.7/lib/pkgconfig/"
 setopt auto_cd
 
@@ -99,9 +107,10 @@ export PATH="/opt/homebrew/opt/mysql-client/bin:$PATH"
 # fzf stuff
 source <(fzf --zsh)
 fpath+=~/.zfunc; autoload -Uz compinit; compinit
-
+alias fzf="fzf --color=dark --tmux center"
 # for kitchen completions
-  fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
+fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # testing out mcfly intelligent history search
 eval "$(mcfly init zsh)"
@@ -141,6 +150,6 @@ man $1 | ul -i | nvim -
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 export PATH="$PATH:$HOME/.rvm/bin"
 
+# syntax highlighting
 source ~/.zsh/catppuccin_mocha-zsh-syntax-highlighting.zsh
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

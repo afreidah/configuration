@@ -25,19 +25,21 @@ require('packer').startup(function(use)
   use 'jlanzarotta/bufexplorer'
   use 'NeogitOrg/neogit'
   use 'Yggdroot/indentLine'
+
   use 'liuchengxu/vista.vim'
+  vim.g['vista#renderer#enable_icon'] = 1
+
   use 'yegappan/taglist'
   use 'DaikyXendo/nvim-material-icon'
   use 'dense-analysis/ale'
   use 'preservim/tagbar'
-  use 'nvim-tree/nvim-web-devicons'
   use 'sbulav/telescope-terraform.nvim'
   use 'preservim/nerdtree'
   use 'neovim/nvim-lspconfig'
   use 'hrsh7th/nvim-cmp'
   use 'hrsh7th/cmp-nvim-lsp'
   use 'VonHeikemen/lsp-zero.nvim'
---  use 'williamboman/mason.nvim'
+  use 'williamboman/mason.nvim'
 --  use 'danchoi/ri.vim'
   use { "catppuccin/nvim", as = "catppuccin" }
   use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }

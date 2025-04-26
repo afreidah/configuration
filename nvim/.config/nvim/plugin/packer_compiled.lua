@@ -75,10 +75,16 @@ time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
   ["CopilotChat.nvim"] = {
-    config = { "\27LJ\2\nh\0\0\4\0\5\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0004\3\0\0=\3\4\2B\0\2\1K\0\1\0\topts\1\0\2\topts\0\nbuild\18make tiktoken\nsetup\17copilot-chat\frequire\0" },
+    config = { "\27LJ\2\n’\1\0\0\5\0\b\0\v6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\5\0005\4\4\0=\4\6\3=\3\a\2B\0\2\1K\0\1\0\topts\vwindow\1\0\1\vwindow\0\1\0\1\vlayout\nfloat\1\0\2\nbuild\18make tiktoken\topts\0\nsetup\17copilot-chat\frequire\0" },
     loaded = true,
     path = "/Users/alexfreidah/.local/share/nvim/site/pack/packer/start/CopilotChat.nvim",
     url = "https://github.com/CopilotC-Nvim/CopilotChat.nvim"
+  },
+  LuaSnip = {
+    config = { "\27LJ\2\n…\1\0\0\3\1\6\0\15-\0\0\0009\0\0\0B\0\1\2\15\0\0\0X\1\4€-\0\0\0009\0\1\0B\0\1\1X\0\5€6\0\2\0009\0\3\0009\0\4\0'\2\5\0B\0\2\1K\0\1\0\0À\15<C-V><Tab>\15nvim_input\bapi\bvim\19expand_or_jump\23expand_or_jumpable\"\0\0\3\1\1\0\5-\0\0\0009\0\0\0)\2ÿÿB\0\2\1K\0\1\0\0À\tjumpM\0\0\3\1\2\0\n-\0\0\0009\0\0\0B\0\1\2\15\0\0\0X\1\4€-\0\0\0009\0\1\0)\2\1\0B\0\2\1K\0\1\0\0À\18change_choice\18choice_active‹\3\1\0\a\0\22\0*6\0\0\0'\2\1\0B\0\2\0029\1\2\0005\3\5\0006\4\0\0'\6\3\0B\4\2\0029\4\4\4=\4\4\0036\4\0\0'\6\3\0B\4\2\0029\4\6\4=\4\6\3B\1\2\0016\1\a\0009\1\b\0019\1\t\0015\3\n\0'\4\v\0003\5\f\0005\6\r\0B\1\5\0016\1\a\0009\1\b\0019\1\t\0015\3\14\0'\4\15\0003\5\16\0005\6\17\0B\1\5\0016\1\a\0009\1\b\0019\1\t\0015\3\18\0'\4\19\0003\5\20\0005\6\21\0B\1\5\0012\0\0€K\0\1\0\1\0\1\vsilent\2\0\n<C-E>\1\3\0\0\6i\6s\1\0\1\vsilent\2\0\f<S-Tab>\1\3\0\0\6i\6s\1\0\1\vsilent\2\0\n<Tab>\1\3\0\0\6i\6s\bset\vkeymap\bvim\fft_func\1\0\3\17load_ft_func\0\24enable_autosnippets\2\fft_func\0\17load_ft_func'luasnip_snippets.common.snip_utils\nsetup\fluasnip\frequire\0" },
+    loaded = true,
+    path = "/Users/alexfreidah/.local/share/nvim/site/pack/packer/start/LuaSnip",
+    url = "https://github.com/L3MON4D3/LuaSnip"
   },
   ale = {
     loaded = true,
@@ -104,6 +110,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/alexfreidah/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
     url = "https://github.com/hrsh7th/cmp-nvim-lsp"
+  },
+  cmp_luasnip = {
+    loaded = true,
+    path = "/Users/alexfreidah/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
+    url = "https://github.com/saadparwaiz1/cmp_luasnip"
   },
   ["copilot.vim"] = {
     config = { "\27LJ\2\n9\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\fcopilot\frequire\0" },
@@ -136,6 +147,12 @@ _G.packer_plugins = {
     path = "/Users/alexfreidah/.local/share/nvim/site/pack/packer/start/lualine.nvim",
     url = "https://github.com/nvim-lualine/lualine.nvim"
   },
+  ["luasnip-snippets"] = {
+    config = { "\27LJ\2\nP\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup'luasnip_snippets.common.snip_utils\frequire\0" },
+    loaded = true,
+    path = "/Users/alexfreidah/.local/share/nvim/site/pack/packer/start/luasnip-snippets",
+    url = "https://github.com/mireq/luasnip-snippets"
+  },
   ["mason.nvim"] = {
     loaded = true,
     path = "/Users/alexfreidah/.local/share/nvim/site/pack/packer/start/mason.nvim",
@@ -163,6 +180,7 @@ _G.packer_plugins = {
     url = "https://github.com/windwp/nvim-autopairs"
   },
   ["nvim-cmp"] = {
+    config = { "\27LJ\2\nC\0\1\4\0\4\0\a6\1\0\0'\3\1\0B\1\2\0029\1\2\0019\3\3\0B\1\2\1K\0\1\0\tbody\15lsp_expand\fluasnip\frequire\1\1\0\5\0\n\0\0156\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\6\0005\3\4\0003\4\3\0=\4\5\3=\3\a\0024\3\3\0005\4\b\0>\4\1\3=\3\t\2B\0\2\1K\0\1\0\fsources\1\0\1\tname\fluasnip\fsnippet\1\0\2\fsources\0\fsnippet\0\vexpand\1\0\1\vexpand\0\0\nsetup\bcmp\frequire\0" },
     loaded = true,
     path = "/Users/alexfreidah/.local/share/nvim/site/pack/packer/start/nvim-cmp",
     url = "https://github.com/hrsh7th/nvim-cmp"
@@ -228,6 +246,12 @@ _G.packer_plugins = {
     path = "/Users/alexfreidah/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim",
     url = "https://github.com/nvim-telescope/telescope-fzf-native.nvim"
   },
+  ["telescope-luasnip.nvim"] = {
+    config = { "\27LJ\2\nL\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0'\2\3\0B\0\2\1K\0\1\0\fluasnip\19load_extension\14telescope\frequire\0" },
+    loaded = true,
+    path = "/Users/alexfreidah/.local/share/nvim/site/pack/packer/start/telescope-luasnip.nvim",
+    url = "https://github.com/benfowler/telescope-luasnip.nvim"
+  },
   ["telescope-symbols.nvim"] = {
     loaded = true,
     path = "/Users/alexfreidah/.local/share/nvim/site/pack/packer/start/telescope-symbols.nvim",
@@ -249,7 +273,7 @@ _G.packer_plugins = {
     url = "https://github.com/nvim-telescope/telescope.nvim"
   },
   ["toggleterm.nvim"] = {
-    config = { "\27LJ\2\n›\1\0\0\4\0\a\0\v6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0006\3\4\0009\3\5\0039\3\6\3=\3\6\2B\0\2\1K\0\1\0\nshell\6o\bvim\1\0\5\18close_on_exit\2\14direction\nfloat\17open_mapping\n<c-\\>\tsize\3\20\nshell\0\nsetup\15toggleterm\frequire\0" },
+    config = { "\27LJ\2\n›\1\0\0\4\0\a\0\v6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0006\3\4\0009\3\5\0039\3\6\3=\3\6\2B\0\2\1K\0\1\0\nshell\6o\bvim\1\0\5\tsize\3\20\14direction\nfloat\nshell\0\18close_on_exit\2\17open_mapping\n<c-\\>\nsetup\15toggleterm\frequire\0" },
     loaded = true,
     path = "/Users/alexfreidah/.local/share/nvim/site/pack/packer/start/toggleterm.nvim",
     url = "https://github.com/akinsho/toggleterm.nvim"
@@ -273,6 +297,11 @@ _G.packer_plugins = {
     path = "/Users/alexfreidah/.local/share/nvim/site/pack/packer/start/vim-gitgutter",
     url = "https://github.com/airblade/vim-gitgutter"
   },
+  ["vim-go"] = {
+    loaded = true,
+    path = "/Users/alexfreidah/.local/share/nvim/site/pack/packer/start/vim-go",
+    url = "https://github.com/fatih/vim-go"
+  },
   ["vim-snippets"] = {
     loaded = true,
     path = "/Users/alexfreidah/.local/share/nvim/site/pack/packer/start/vim-snippets",
@@ -291,22 +320,38 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: nvim-autopairs
-time([[Config for nvim-autopairs]], true)
-try_loadstring("\27LJ\2\n@\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\19nvim-autopairs\frequire\0", "config", "nvim-autopairs")
-time([[Config for nvim-autopairs]], false)
+-- Config for: CopilotChat.nvim
+time([[Config for CopilotChat.nvim]], true)
+try_loadstring("\27LJ\2\n’\1\0\0\5\0\b\0\v6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\5\0005\4\4\0=\4\6\3=\3\a\2B\0\2\1K\0\1\0\topts\vwindow\1\0\1\vwindow\0\1\0\1\vlayout\nfloat\1\0\2\nbuild\18make tiktoken\topts\0\nsetup\17copilot-chat\frequire\0", "config", "CopilotChat.nvim")
+time([[Config for CopilotChat.nvim]], false)
+-- Config for: telescope-luasnip.nvim
+time([[Config for telescope-luasnip.nvim]], true)
+try_loadstring("\27LJ\2\nL\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0'\2\3\0B\0\2\1K\0\1\0\fluasnip\19load_extension\14telescope\frequire\0", "config", "telescope-luasnip.nvim")
+time([[Config for telescope-luasnip.nvim]], false)
+-- Config for: LuaSnip
+time([[Config for LuaSnip]], true)
+try_loadstring("\27LJ\2\n…\1\0\0\3\1\6\0\15-\0\0\0009\0\0\0B\0\1\2\15\0\0\0X\1\4€-\0\0\0009\0\1\0B\0\1\1X\0\5€6\0\2\0009\0\3\0009\0\4\0'\2\5\0B\0\2\1K\0\1\0\0À\15<C-V><Tab>\15nvim_input\bapi\bvim\19expand_or_jump\23expand_or_jumpable\"\0\0\3\1\1\0\5-\0\0\0009\0\0\0)\2ÿÿB\0\2\1K\0\1\0\0À\tjumpM\0\0\3\1\2\0\n-\0\0\0009\0\0\0B\0\1\2\15\0\0\0X\1\4€-\0\0\0009\0\1\0)\2\1\0B\0\2\1K\0\1\0\0À\18change_choice\18choice_active‹\3\1\0\a\0\22\0*6\0\0\0'\2\1\0B\0\2\0029\1\2\0005\3\5\0006\4\0\0'\6\3\0B\4\2\0029\4\4\4=\4\4\0036\4\0\0'\6\3\0B\4\2\0029\4\6\4=\4\6\3B\1\2\0016\1\a\0009\1\b\0019\1\t\0015\3\n\0'\4\v\0003\5\f\0005\6\r\0B\1\5\0016\1\a\0009\1\b\0019\1\t\0015\3\14\0'\4\15\0003\5\16\0005\6\17\0B\1\5\0016\1\a\0009\1\b\0019\1\t\0015\3\18\0'\4\19\0003\5\20\0005\6\21\0B\1\5\0012\0\0€K\0\1\0\1\0\1\vsilent\2\0\n<C-E>\1\3\0\0\6i\6s\1\0\1\vsilent\2\0\f<S-Tab>\1\3\0\0\6i\6s\1\0\1\vsilent\2\0\n<Tab>\1\3\0\0\6i\6s\bset\vkeymap\bvim\fft_func\1\0\3\17load_ft_func\0\24enable_autosnippets\2\fft_func\0\17load_ft_func'luasnip_snippets.common.snip_utils\nsetup\fluasnip\frequire\0", "config", "LuaSnip")
+time([[Config for LuaSnip]], false)
 -- Config for: copilot.vim
 time([[Config for copilot.vim]], true)
 try_loadstring("\27LJ\2\n9\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\fcopilot\frequire\0", "config", "copilot.vim")
 time([[Config for copilot.vim]], false)
--- Config for: CopilotChat.nvim
-time([[Config for CopilotChat.nvim]], true)
-try_loadstring("\27LJ\2\nh\0\0\4\0\5\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0004\3\0\0=\3\4\2B\0\2\1K\0\1\0\topts\1\0\2\topts\0\nbuild\18make tiktoken\nsetup\17copilot-chat\frequire\0", "config", "CopilotChat.nvim")
-time([[Config for CopilotChat.nvim]], false)
+-- Config for: luasnip-snippets
+time([[Config for luasnip-snippets]], true)
+try_loadstring("\27LJ\2\nP\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup'luasnip_snippets.common.snip_utils\frequire\0", "config", "luasnip-snippets")
+time([[Config for luasnip-snippets]], false)
+-- Config for: nvim-autopairs
+time([[Config for nvim-autopairs]], true)
+try_loadstring("\27LJ\2\n@\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\19nvim-autopairs\frequire\0", "config", "nvim-autopairs")
+time([[Config for nvim-autopairs]], false)
 -- Config for: toggleterm.nvim
 time([[Config for toggleterm.nvim]], true)
-try_loadstring("\27LJ\2\n›\1\0\0\4\0\a\0\v6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0006\3\4\0009\3\5\0039\3\6\3=\3\6\2B\0\2\1K\0\1\0\nshell\6o\bvim\1\0\5\18close_on_exit\2\14direction\nfloat\17open_mapping\n<c-\\>\tsize\3\20\nshell\0\nsetup\15toggleterm\frequire\0", "config", "toggleterm.nvim")
+try_loadstring("\27LJ\2\n›\1\0\0\4\0\a\0\v6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0006\3\4\0009\3\5\0039\3\6\3=\3\6\2B\0\2\1K\0\1\0\nshell\6o\bvim\1\0\5\tsize\3\20\14direction\nfloat\nshell\0\18close_on_exit\2\17open_mapping\n<c-\\>\nsetup\15toggleterm\frequire\0", "config", "toggleterm.nvim")
 time([[Config for toggleterm.nvim]], false)
+-- Config for: nvim-cmp
+time([[Config for nvim-cmp]], true)
+try_loadstring("\27LJ\2\nC\0\1\4\0\4\0\a6\1\0\0'\3\1\0B\1\2\0029\1\2\0019\3\3\0B\1\2\1K\0\1\0\tbody\15lsp_expand\fluasnip\frequire\1\1\0\5\0\n\0\0156\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\6\0005\3\4\0003\4\3\0=\4\5\3=\3\a\0024\3\3\0005\4\b\0>\4\1\3=\3\t\2B\0\2\1K\0\1\0\fsources\1\0\1\tname\fluasnip\fsnippet\1\0\2\fsources\0\fsnippet\0\vexpand\1\0\1\vexpand\0\0\nsetup\bcmp\frequire\0", "config", "nvim-cmp")
+time([[Config for nvim-cmp]], false)
 -- Config for: oil.nvim
 time([[Config for oil.nvim]], true)
 try_loadstring("\27LJ\2\n1\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\boil\frequire\0", "config", "oil.nvim")

@@ -14,36 +14,79 @@ require('packer').startup(function(use)
 --  -- use 'tpope/vim-fugitive'           -- Git integration
 --  -- use 'vimpostor/vim-tpipeline'
   use 't9md/vim-chef'
-  use 'nvim-treesitter/nvim-treesitter'
   use 'airblade/vim-gitgutter'       -- Git diff in the gutter
   use 'nvim-lua/plenary.nvim'        -- Required for Copilot Chat
   use 'echasnovski/mini.icons'
+  use 'DaikyXendo/nvim-material-icon'
+  use {
+    "benfowler/telescope-luasnip.nvim",
+    config = function()
+      require("telescope").load_extension("luasnip")
+    end
+  }
+  use {
+    'mireq/luasnip-snippets',
+    config = function()
+      require('luasnip_snippets.common.snip_utils').setup()
+    end
+  }
+  use {
+    'L3MON4D3/LuaSnip',
+    config = function()
+      local ls = require('luasnip')
+      ls.setup({
+        load_ft_func = require('luasnip_snippets.common.snip_utils').load_ft_func,
+        ft_func = require('luasnip_snippets.common.snip_utils').ft_func,
+        enable_autosnippets = true,
+        -- Uncomment to enable visual snippets triggered using <c-x>
+        -- store_selection_keys = '<c-x>',
+      })
+      -- LuaSnip key bindings
+      vim.keymap.set({"i", "s"}, "<Tab>", function() if ls.expand_or_jumpable() then ls.expand_or_jump() else vim.api.nvim_input('<C-V><Tab>') end end, {silent = true})
+      vim.keymap.set({"i", "s"}, "<S-Tab>", function() ls.jump(-1) end, {silent = true})
+      vim.keymap.set({"i", "s"}, "<C-E>", function() if ls.choice_active() then ls.change_choice(1) end end, {silent = true})
+    end
+  }
+  use {
+    'hrsh7th/nvim-cmp',
+    config = function()
+      require("cmp").setup {
+        snippet = {
+          expand = function(args)
+            require'luasnip'.lsp_expand(args.body)
+          end
+        },
+        sources = {
+          { name = 'luasnip' },
+        }
+      }
+    end
+  }
+  use { 'saadparwaiz1/cmp_luasnip' }
   use 'weizheheng/nvim-workbench'
+  use 'jlanzarotta/bufexplorer'
+  use 'Yggdroot/indentLine'
   use 'kuznetsss/shswitch'
+  use 'preservim/tagbar'
+  use 'yegappan/taglist'
+  use 'preservim/nerdtree'
+  use 'NeogitOrg/neogit'
   use 'aquasecurity/vim-tfsec'
   use 'honza/vim-snippets'
-  use 'jlanzarotta/bufexplorer'
-  use 'NeogitOrg/neogit'
-  use 'Yggdroot/indentLine'
-
-  use 'liuchengxu/vista.vim'
-  vim.g['vista#renderer#enable_icon'] = 1
-
-  use 'yegappan/taglist'
-  use 'DaikyXendo/nvim-material-icon'
+  use 'fatih/vim-go'
   use 'dense-analysis/ale'
-  use 'preservim/tagbar'
+  use 'nvim-treesitter/nvim-treesitter'
   use 'sbulav/telescope-terraform.nvim'
-  use 'preservim/nerdtree'
   use 'neovim/nvim-lspconfig'
   use 'hrsh7th/nvim-cmp'
   use 'hrsh7th/cmp-nvim-lsp'
   use 'VonHeikemen/lsp-zero.nvim'
   use 'williamboman/mason.nvim'
---  use 'danchoi/ri.vim'
   use { "catppuccin/nvim", as = "catppuccin" }
   use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
   use {'akinsho/bufferline.nvim', tag = "*", requires = 'nvim-tree/nvim-web-devicons'}
+  use 'liuchengxu/vista.vim'
+  vim.g['vista#renderer#enable_icon'] = 1
 --
   use {
     'junegunn/fzf',
@@ -68,29 +111,24 @@ require('packer').startup(function(use)
       vim.keymap.set("n", "<leader>xQ", "<cmd>Trouble qflist toggle<cr>", { desc = "Quickfix List (Trouble)" })
     end
   }
-
-  --
 --
 --  -- use({
 --  --   "aserowy/tmux.nvim",
 --  --   config = function() return require("tmux").setup() end
 --  -- })
-
-  -- configure lua-line
+--
   use {
     'nvim-lualine/lualine.nvim',
     requires = { 'nvim-tree/nvim-web-devicons', opt = true }
   }
-
-  -- configure nvim-autopairs
+--
   use {
     'windwp/nvim-autopairs',
     config = function()
       require('nvim-autopairs').setup{}
     end
   }
-
-  -- configure telescope.nvim
+--
   use 'nvim-telescope/telescope-symbols.nvim'
   use {'nvim-telescope/telescope-ui-select.nvim' }
   use {
@@ -100,13 +138,11 @@ require('packer').startup(function(use)
     }
   }
 --
-  -- telescope-file-browser stuff
   use {
     "nvim-telescope/telescope-file-browser.nvim",
     requires = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" }
   }
-
-  -- configure oil
+ --
   use {
     "stevearc/oil.nvim",
     config = function()
@@ -114,27 +150,28 @@ require('packer').startup(function(use)
     end
   }
 --
-   -- configure copilot.vim
   use {
       'github/copilot.vim',
       config = function()
         require("copilot").setup({})
       end
     }
-
-  -- -- configure copilot-chat
+--
   use {
     'CopilotC-Nvim/CopilotChat.nvim',
     requires = {{'github/copilot.vim'}, {'nvim-lua/plenary.nvim', branch = 'master'}},
     config = function()
       require("copilot-chat").setup {
         build = "make tiktoken",
-        opts = {}
+        opts = {
+            window = {
+                layout = "float",
+            },
+        }
       }
     end
   }
-
-  -- configure toggleterm.nvim
+--
   use {
     "akinsho/toggleterm.nvim",  -- Toggleterm plugin
     config = function()
@@ -148,6 +185,6 @@ require('packer').startup(function(use)
     end
   }
 end)
-
+--
 local neogit = require('neogit')
 neogit.setup {}

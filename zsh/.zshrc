@@ -153,3 +153,7 @@ export PATH="$PATH:$HOME/.rvm/bin"
 # syntax highlighting
 source ~/.zsh/catppuccin_mocha-zsh-syntax-highlighting.zsh
 
+
+# setting for mkgoprj command (auto generate)
+fpath=(~/.zsh/completion $fpath)
+autoload -Uz compinit && compinit -i

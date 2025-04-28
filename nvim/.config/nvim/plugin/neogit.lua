@@ -1,10 +1,5 @@
 local neogit = require("neogit")
 
--- Map Neogit kind=split
-vim.api.nvim_set_keymap('n', '<leader>g', 'Neogit kind=split<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>gf', 'Neogit kind=split<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>gv', 'Neogit kind=split<CR>', { noremap = true, silent = true })
-
 neogit.setup {
   -- Hides the hints at the top of the status buffer
   disable_hint = false,

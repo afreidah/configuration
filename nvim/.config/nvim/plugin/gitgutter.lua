@@ -9,10 +9,3 @@ vim.cmd('highlight GitGutterAddLineNr guifg=lightgreen')
 vim.cmd('highlight GitGutterChangeLineNr guifg=lightblue')
 vim.cmd('highlight GitGutterDeleteLineNr guifg=lightred')
 vim.cmd('highlight GitGutterChangeDeleteLineNr guifg=lightred')
-
-vim.keymap.set('n', ']h', '<Plug>(GitGutterNextHunk)', { noremap = true, silent = true })
-vim.keymap.set('n', '[h', '<Plug>(GitGutterPrevHunk)', { noremap = true, silent = true })
-vim.keymap.set('n', 'ghs', '<Plug>(GitGutterStageHunk)', { noremap = true, silent = true })
-vim.keymap.set('n', 'ghu', '<Plug>(GitGutterStageHunk)', { noremap = true, silent = true })
-vim.keymap.set('n', '<leader>hp', '<Plug>(GitGutterPreviewHunk)', { noremap = true, silent = true })
-

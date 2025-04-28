@@ -8,183 +8,187 @@ local ensure_packer = function()
   end
 end
 ensure_packer()
+vim.cmd [[packadd packer.nvim]]  -- force load Packer explicitly
 
--- install required packages
 require('packer').startup(function(use)
---  -- use 'tpope/vim-fugitive'           -- Git integration
---  -- use 'vimpostor/vim-tpipeline'
-  use 't9md/vim-chef'
-  use 'airblade/vim-gitgutter'       -- Git diff in the gutter
-  use 'nvim-lua/plenary.nvim'        -- Required for Copilot Chat
-  use 'echasnovski/mini.icons'
-  use 'DaikyXendo/nvim-material-icon'
+
+  -- Core Plugins
+  use 'nvim-lua/plenary.nvim'            -- Required by some plugins
+  use 'nvim-lua/popup.nvim'              -- Popup utilities
+
+  -- Git & File Management
+  use 'airblade/vim-gitgutter'           -- Git diff in the gutter
+  use 'neogitorg/neogit'                 -- Git integration
+  use 'preservim/tagbar'                 -- Tag viewer
+  use 'liuchengxu/vista.vim'             -- Provides a tag-based viewer similar to Tagbar.
+  use 'preservim/nerdtree'               -- File explorer
+  use 'tpope/vim-fugitive'               -- Classic git integration
   use {
-    "benfowler/telescope-luasnip.nvim",
+  'akinsho/toggleterm.nvim',
+  tag = '*',
+  config = function()
+    require("toggleterm").setup{
+      size = 20,
+      open_mapping = [[<c-\>]],
+      shade_filetypes = {},
+      shade_terminals = true,
+      shading_factor = 2,
+      start_in_insert = true,
+      persist_size = true,
+      direction = 'float', -- or 'vertical' | 'float'
+    }
+  end
+}
+
+  -- LSP & Completion
+  use 'neovim/nvim-lspconfig'           -- LSP Config
+  use 'hrsh7th/nvim-cmp'                -- Autocompletion
+  use 'hrsh7th/cmp-nvim-lsp'            -- LSP source for nvim-cmp
+  use 'hrsh7th/cmp-buffer'              -- Buffer completions
+  use 'hrsh7th/cmp-path'                -- Path completions
+  use 'saadparwaiz1/cmp_luasnip'        -- LuaSnip completions
+  use 'L3MON4D3/LuaSnip'                -- Snippets engine
+  use 't9md/vim-chef'                   -- Chef syntax highlighting
+  use 'honza/vim-snippets'              -- Snippets collection
+
+  use {
+    'ray-x/go.nvim',
+    config = function()
+      require('go').setup({
+        goimports = 'gopls',  -- Use gopls for goimports
+        gofmt = 'gopls',      -- Use gopls for gofmt
+        tag_transform = false, -- Don't automatically transform Go tags
+        comment_placeholder = '   ', -- Placeholder for comments in Go files
+        test_dir = '',        -- Set the test directory if needed
+        lsp_cfg = true,       -- Use nvim-lspconfig settings for go
+        lsp_gofumpt = true,   -- Enable gofumpt (gopls formatting tool)
+        lsp_on_attach = true, -- Use on_attach from go.nvim for LSP setup
+        dap_debug = true,     -- Enable debugging for Go
+      })
+    end
+  }
+
+  use {
+    'williamboman/mason.nvim',
+    config = function()
+        require("mason").setup()
+    end
+  }
+
+  -- Snippet and Autocompletion Setup
+  use {
+    'benfowler/telescope-luasnip.nvim',
     config = function()
       require("telescope").load_extension("luasnip")
+      require('telescope').load_extension('terraform')
+      require('telescope.builtin')
     end
   }
-  use {
-    'mireq/luasnip-snippets',
-    config = function()
-      require('luasnip_snippets.common.snip_utils').setup()
-    end
-  }
-  use {
-    'L3MON4D3/LuaSnip',
-    config = function()
-      local ls = require('luasnip')
-      ls.setup({
-        load_ft_func = require('luasnip_snippets.common.snip_utils').load_ft_func,
-        ft_func = require('luasnip_snippets.common.snip_utils').ft_func,
-        enable_autosnippets = true,
-        -- Uncomment to enable visual snippets triggered using <c-x>
-        -- store_selection_keys = '<c-x>',
-      })
-      -- LuaSnip key bindings
-      vim.keymap.set({"i", "s"}, "<Tab>", function() if ls.expand_or_jumpable() then ls.expand_or_jump() else vim.api.nvim_input('<C-V><Tab>') end end, {silent = true})
-      vim.keymap.set({"i", "s"}, "<S-Tab>", function() ls.jump(-1) end, {silent = true})
-      vim.keymap.set({"i", "s"}, "<C-E>", function() if ls.choice_active() then ls.change_choice(1) end end, {silent = true})
-    end
-  }
-  use {
-    'hrsh7th/nvim-cmp',
-    config = function()
-      require("cmp").setup {
-        snippet = {
-          expand = function(args)
-            require'luasnip'.lsp_expand(args.body)
-          end
-        },
-        sources = {
-          { name = 'luasnip' },
-        }
-      }
-    end
-  }
-  use { 'saadparwaiz1/cmp_luasnip' }
-  use 'weizheheng/nvim-workbench'
-  use 'jlanzarotta/bufexplorer'
-  use 'Yggdroot/indentLine'
-  use 'kuznetsss/shswitch'
-  use 'preservim/tagbar'
-  use 'yegappan/taglist'
-  use 'preservim/nerdtree'
-  use 'NeogitOrg/neogit'
-  use 'aquasecurity/vim-tfsec'
-  use 'honza/vim-snippets'
-  use 'fatih/vim-go'
-  use 'dense-analysis/ale'
-  use 'nvim-treesitter/nvim-treesitter'
-  use 'sbulav/telescope-terraform.nvim'
-  use 'neovim/nvim-lspconfig'
-  use 'hrsh7th/nvim-cmp'
-  use 'hrsh7th/cmp-nvim-lsp'
-  use 'VonHeikemen/lsp-zero.nvim'
-  use 'williamboman/mason.nvim'
-  use { "catppuccin/nvim", as = "catppuccin" }
-  use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
-  use {'akinsho/bufferline.nvim', tag = "*", requires = 'nvim-tree/nvim-web-devicons'}
-  use 'liuchengxu/vista.vim'
-  vim.g['vista#renderer#enable_icon'] = 1
---
-  use {
-    'junegunn/fzf',
-    run = './install --all'  -- same as fzf#install()
-  }
---
-  use 'junegunn/fzf.vim'
-  vim.keymap.set("n", "<leader>r", "<cmd>Rg<cr>", { desc = "(ripgrep to search file contents)" })
---
-  use {
-    'folke/trouble.nvim',
-    requires = { 'nvim-tree/nvim-web-devicons' }, -- optional dependency
-    cmd = { 'Trouble' },
-    config = function()
-      require("trouble").setup {} -- empty opts for default config
-      -- Keybindings
-      vim.keymap.set("n", "<leader>xx", "<cmd>Trouble diagnostics toggle<cr>", { desc = "Diagnostics (Trouble)" })
-      vim.keymap.set("n", "<leader>xX", "<cmd>Trouble diagnostics toggle filter.buf=0<cr>", { desc = "Buffer Diagnostics (Trouble)" })
-      vim.keymap.set("n", "<leader>cs", "<cmd>Trouble symbols toggle focus=false<cr>", { desc = "Symbols (Trouble)" })
-      vim.keymap.set("n", "<leader>cl", "<cmd>Trouble lsp toggle focus=false win.position=right<cr>", { desc = "LSP Definitions / references / ..." })
-      vim.keymap.set("n", "<leader>xL", "<cmd>Trouble loclist toggle<cr>", { desc = "Location List (Trouble)" })
-      vim.keymap.set("n", "<leader>xQ", "<cmd>Trouble qflist toggle<cr>", { desc = "Quickfix List (Trouble)" })
-    end
-  }
---
---  -- use({
---  --   "aserowy/tmux.nvim",
---  --   config = function() return require("tmux").setup() end
---  -- })
---
-  use {
-    'nvim-lualine/lualine.nvim',
-    requires = { 'nvim-tree/nvim-web-devicons', opt = true }
-  }
---
-  use {
-    'windwp/nvim-autopairs',
-    config = function()
-      require('nvim-autopairs').setup{}
-    end
-  }
---
-  use 'nvim-telescope/telescope-symbols.nvim'
-  use {'nvim-telescope/telescope-ui-select.nvim' }
+
+  -- Syntax Highlighting and Treesitter
+  use 'nvim-treesitter/nvim-treesitter' -- Syntax highlighting and treesitter
+  use 'Yggdroot/indentLine'             -- Indentation guide lines
+
+  -- Debugging & Testing
+  use 'mfussenegger/nvim-dap'           -- Debug Adapter Protocol
+  use 'rcarriga/nvim-dap-ui'            -- Debugger UI
+  use 'theHamsta/nvim-dap-virtual-text' -- Debugger virtual text
+  use 'aquasecurity/vim-tfsec'          -- A plugin that provides Terraform security linting.
+
+  -- UI Enhancements
+  use 'ray-x/guihua.lua'                -- GUI support for floating terminal
+  use 'akinsho/bufferline.nvim'         -- Buffer tabs
+  use 'nvim-lualine/lualine.nvim'       -- Statusline
+  use 'windwp/nvim-autopairs'           -- Autopairs for brackets and quotes
+  use 'echasnovski/mini.icons'          -- Provides icons for Neovim's Mini plugin suite.
+  use 'DaikyXendo/nvim-material-icon'   -- A plugin that provides Material Design icons for Neovim.
+  use 'jlanzarotta/bufexplorer'         -- A plugin for easily switching between open buffers.
+
+  -- Fuzzy Finder and Search
   use {
     'nvim-telescope/telescope.nvim',
-    requires = {
-        {'nvim-lua/plenary.nvim'},
-    }
-  }
---
-  use {
-    "nvim-telescope/telescope-file-browser.nvim",
-    requires = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" }
-  }
- --
-  use {
-    "stevearc/oil.nvim",
+    requires = { 'nvim-lua/plenary.nvim', 'nvim-telescope/telescope-file-browser.nvim' },
     config = function()
-      require("oil").setup()
-    end
-  }
---
-  use {
-      'github/copilot.vim',
-      config = function()
-        require("copilot").setup({})
-      end
-    }
---
-  use {
-    'CopilotC-Nvim/CopilotChat.nvim',
-    requires = {{'github/copilot.vim'}, {'nvim-lua/plenary.nvim', branch = 'master'}},
-    config = function()
-      require("copilot-chat").setup {
-        build = "make tiktoken",
-        opts = {
-            window = {
-                layout = "float",
-            },
-        }
+      require('telescope').setup{
+        extensions = {
+          file_browser = {
+            -- configuration options for file_browser extension
+          },
+        },
       }
-    end
+      -- Load the file_browser extension
+      require('telescope').load_extension('file_browser')
+    end,
   }
---
+
+  use { 
+    'nvim-telescope/telescope-fzf-native.nvim', 
+    run = 'make' 
+  }
+  use { 
+    'junegunn/fzf', 
+    run = './install --all'  -- same as fzf#install()
+  }
+
+  use 'junegunn/fzf.vim'
+  use 'nvim-telescope/telescope-ui-select.nvim'    -- UI Select for Telescope
+
+  -- Miscellaneous
+  use 'catppuccin/nvim'                   -- Color scheme
+  use 'sbulav/telescope-terraform.nvim'   -- Terraform telescope extension
+  use 'stevearc/oil.nvim'                 -- File management and preview
+
+  -- Copilot-CMP (lets Copilot suggestions show in completion menu)
   use {
-    "akinsho/toggleterm.nvim",  -- Toggleterm plugin
+    "zbirenbaum/copilot-cmp",
+    after = { "copilot.lua" },
+  }
+
+  -- GitHub Copilot (Lua version)
+  use {
+    "zbirenbaum/copilot.lua",
+    event = "InsertEnter", -- lazy-load Copilot when starting to type
     config = function()
-      require("toggleterm").setup {
-        size = 20,
-        open_mapping = [[<c-\>]],  -- Define the keybinding to toggle the terminal
-        direction = 'float',       -- 'horizontal', 'vertical', or 'float'
-        shell = vim.o.shell,
-        close_on_exit = true
-      }
-    end
+      require("copilot").setup({
+        suggestion = {
+          enabled = true,
+          auto_trigger = true,
+          debounce = 75,
+          keymap = {
+            accept = "<C-l>",
+            next = "<C-n>",
+            prev = "<C-p>",
+            dismiss = "<C-]>",
+          },
+        },
+        panel = {
+          enabled = true,
+          auto_refresh = true,
+        },
+        filetypes = {
+          markdown = true,
+          gitcommit = true,
+          ["*"] = true,
+        },
+      })
+    end,
+  }
+
+  -- CopilotChat (chat interface)
+  use {
+    "CopilotC-Nvim/CopilotChat.nvim",
+    requires = { "nvim-lua/plenary.nvim" },
+    run = "make tiktoken",
+    config = function()
+      require("copilotchat").setup({
+        window = {
+          layout = "float",  -- Make the window a floating window
+          width = 120,       -- Width of the floating window
+          height = 20,       -- Height of the floating window
+          border = "rounded", -- Border style for the window
+        },
+      })
+    end,
   }
 end)
---
-local neogit = require('neogit')
-neogit.setup {}
+

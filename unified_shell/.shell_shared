@@ -1,0 +1,82 @@
+# ~/.shell_shared - Universal shell config for Bash/Zsh on Linux/macOS
+
+# --- PATH Setup ---
+export PATH="/Users/alexfreidah/.nvm/versions/node/v22.15.0/bin:/Users/alexfreidah/.rvm/gems/ruby-3.3.6/bin:/Users/alexfreidah/.rvm/gems/ruby-3.3.6@global/bin:/Users/alexfreidah/.rvm/rubies/ruby-3.3.6/bin:/opt/homebrew/anaconda3/bin:/opt/homebrew/opt/mysql-client/bin:/Users/AlexFreidah/utilities:/opt/homebrew/opt/libpq/bin:/opt/homebrew/anaconda3/bin:/opt/local/bin:/Users/alexfreidah/.chefdk/gem/ruby/2.1.0/bin:/opt/chefdk/bin:/opt/homebrew/opt/ruby@3.1/bin:/Users/alexfreidah/.local/share/gem/ruby/3.3.0/bin:/Users/alexfreidah/.local/bin:/Users/alexfreidah/.tfenv/bin:/Users/AlexFreidah/tools:/Users/AlexFreidah/.mynav:/Applications/SnowSQL.app/Contents/MacOS:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/usr/local/munki:/Users/alexfreidah/.local/bin:/Users/alexfreidah/.rvm/gems/ruby-3.3.6/bin:/Users/alexfreidah/.rvm/gems/ruby-3.3.6@global/bin:/Users/alexfreidah/.rvm/rubies/ruby-3.3.6/bin:/Users/alexfreidah/.rvm/bin:/opt/homebrew/anaconda3/bin:/opt/homebrew/opt/mysql-client/bin:/Users/AlexFreidah/utilities:/opt/homebrew/opt/libpq/bin:/opt/local/bin:/Users/alexfreidah/.chefdk/gem/ruby/2.1.0/bin:/opt/chefdk/bin:/opt/homebrew/opt/ruby@3.1/bin:/Users/alexfreidah/.local/share/gem/ruby/3.3.0/bin:/Users/alexfreidah/.tfenv/bin:/Users/AlexFreidah/tools:/Users/AlexFreidah/.mynav:/Applications/SnowSQL.app/Contents/MacOS:/Users/alexfreidah/go/bin:/Users/alexfreidah/.local/share/nvim/site/pack/packer/start/fzf/bin:/Users/alexfreidah/go/bin:/Users/alexfreidah/.rvm/bin"
+
+# --- Aliases ---
+alias ls="ls -ltrG"
+alias vi="nvim"
+alias vim="nvim"
+alias vimcfg="vim ~/config/nvim/.config/nvim/init.lua"
+alias zsrc="source ~/.zshrc"
+alias zshconfig="vim ~/.zshrc"
+alias be="bundle exec"
+alias cat="pygmentize -f terminal256 -O style=native -g"
+alias egrep="egrep -i --color=\"always\""
+
+# Copilot Aliases
+alias ghe="gh copilot explain"
+alias ghs="gh copilet suggest"
+
+# tmux Aliases
+alias tmux='tmux -u'
+alias tmx="tmuxinator"
+alias ta="tmux attach -t"
+alias tmuxcfg="vim ~/.tmux.conf"
+
+# Terraform/Terragrunt Aliases
+alias tp="terragrunt plan"
+alias ta="terragrunt apply"
+alias ti="terragrunt init -upgrade"
+alias tip="terragrunt init -upgrade; terragrunt plan"
+
+# Test Kitchen Aliases
+alias kl="kitchen list"
+alias kt="kitchen test"
+alias kv="kitchen verify"
+alias kd="kitchen destroy"
+alias klog="kitchen login"
+alias kc="kitchen converge"
+
+# Formatter Aliases
+alias c_format="find . -regex '.*\.(cpp|hpp|cu|cuh|c|h)' -exec clang-format -style=file -i {} \;"
+alias terraform_format="terragrunt fmt"
+alias terraform_doc="terraform-docs --hide modules --output-file README.md --output-mode inject markdown ./"
+alias ruby_format="bundle exec rubocop -a"
+alias python_format="black ."
+alias python_doc="pydoc-markdown -I $(pwd) > README.md"
+alias chef_format="cookstyle"
+
+# --- Environment Variables ---
+export EDITOR='nvim'
+export TERM="tmux-256color"
+export DOCKER_BUILDKIT=1
+export CHEF_API_CLIENT='afreidah'
+export CHEF_API_KEY='$HOME/tools/chef/afreidah.pem'
+export CHEF_SECRET_FILE='$HOME/tools/chef/encrypted_data_bag_secret'
+export CHEF_SECRET_FILE_COLLECTION='$HOME/tools/chef/encrypted_data_bag_secret_collection'
+export AWS_PROFILE=default-mfa
+export AWS_DEFAULT_REGION=us-west-2
+export GOPATH=~/go
+export PATH="$PATH:$GOPATH/bin"
+export TERRAGRUNT_DOWNLOAD=/tmp/terragrunt_caches
+export PACKER_SSH_KEY="$HOME/.ssh/id_rsa"
+export NVM_DIR="$HOME/.nvm"
+
+
+# --- SSH Setup ---
+eval "$(ssh-agent -s)" >/dev/null
+
+# --- NVM ---
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+
+# --- mann function ---
+function mann {
+  man $1 | ul -i | nvim -
+}
+
+case "$(uname)" in
+  Darwin) [ -f ~/.shell_osx ] && source ~/.shell_osx ;;
+  Linux) [ -f ~/.shell_linux ]] && source ~/.shell_linux ;;
+esac

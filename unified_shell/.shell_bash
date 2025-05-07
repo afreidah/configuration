@@ -1,0 +1,10 @@
+# ~/.shell_bash
+# Bash-specific setup can go here (currently nothing specific)
+#
+[[ -f ~/.fzf.bash ]] && source ~/.fzf.bash
+
+C_OFF="\[$(tput sgr0)\]"
+C_CYAN="\[$(tput setaf 6)\]"
+C_MAGENTA="\[$(tput setaf 5)\]"
+C_ORANGE="\[$(tput setaf 214)\]"
+export PS1="${C_CYAN}\u${C_OFF}@${C_MAGENTA}\h${C_OFF}:${C_ORANGE}\w ${C_OFF}\$ "

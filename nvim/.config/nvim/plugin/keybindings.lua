@@ -55,3 +55,7 @@ vim.keymap.set('n', '[h', '<Plug>(GitGutterPrevHunk)', { noremap = true, silent 
 vim.keymap.set('n', 'ghs', '<Plug>(GitGutterStageHunk)', { noremap = true, silent = true })
 vim.keymap.set('n', 'ghu', '<Plug>(GitGutterStageHunk)', { noremap = true, silent = true })
 vim.keymap.set('n', '<leader>hp', '<Plug>(GitGutterPreviewHunk)', { noremap = true, silent = true })
+
+-- Go keybindings
+vim.keymap.set('n', '<leader>gd', ':GoDoc<CR>', { desc = 'View GoDoc under cursor', silent = true })
+vim.keymap.set('n', '<leader>gt', ':GoTestSum ./...<CR>', { desc = 'Run GoTestSum', buffer = true })

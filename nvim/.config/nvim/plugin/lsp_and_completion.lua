@@ -1,3 +1,44 @@
+-- configure neoconf so we can have per project settings
+require("neoconf").setup({
+  -- name of the local settings files
+  local_settings = ".neoconf.json",
+  -- name of the global settings file in your Neovim config directory
+  global_settings = "neoconf.json",
+  -- import existing settings from other plugins
+  import = {
+    vscode = true, -- local .vscode/settings.json
+    coc = true, -- global/local coc-settings.json
+    nlsp = true, -- global/local nlsp-settings.nvim json settings
+  },
+  -- send new configuration to lsp clients when changing json settings
+  live_reload = true,
+  -- set the filetype to jsonc for settings files, so you can use comments
+  -- make sure you have the jsonc treesitter parser installed!
+  filetype_jsonc = true,
+  plugins = {
+    -- configures lsp clients with settings in the following order:
+    -- - lua settings passed in lspconfig setup
+    -- - global json settings
+    -- - local json settings
+    lspconfig = {
+      enabled = true,
+    },
+    -- configures jsonls to get completion in .neoconf.json files
+    jsonls = {
+      enabled = true,
+      -- only show completion in json settings for configured lsp servers
+      configured_servers_only = true,
+    },
+    -- configures lua_ls to get completion of lspconfig server settings
+    lua_ls = {
+      -- by default, lua_ls annotations are only enabled in your neovim config directory
+      enabled_for_neovim_config = true,
+      -- explicitly enable adding annotations. Mostly relevant to put in your local .neoconf.json file
+      enabled = false,
+    },
+  },
+})
+
 -- Set LSP capabilities (before server configs)
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
@@ -97,4 +138,30 @@ end)
 pcall(function()
   require("copilot_cmp").setup()
 end)
+
+-- setup Wilder for command line completion
+local wilder = require('wilder')
+wilder.setup({modes = {':', '/', '?'}})
+
+wilder.set_option('renderer', wilder.renderer_mux({
+  [':'] = wilder.popupmenu_renderer({
+    highlighter = wilder.basic_highlighter(),
+  }),
+  ['/'] = wilder.wildmenu_renderer({
+    highlighter = wilder.basic_highlighter(),
+  }),
+}))
+
+-- OPTIONAL - display as popup in middle of screen
+-- wilder.set_option('renderer', wilder.popupmenu_renderer(
+--   wilder.popupmenu_palette_theme({
+--     -- 'single', 'double', 'rounded' or 'solid'
+--     -- can also be a list of 8 characters, see :h wilder#popupmenu_palette_theme() for more details
+--     border = 'rounded',
+--     max_height = '75%',      -- max height of the palette
+--     min_height = 0,          -- set to the same as 'max_height' for a fixed height window
+--     prompt_position = 'top', -- 'top' or 'bottom' to set the location of the prompt
+--     reverse = 0,             -- set to 1 to reverse the order of the list, use in combination with 'prompt_position'
+--   })
+-- ))
 

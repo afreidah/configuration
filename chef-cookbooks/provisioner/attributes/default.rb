@@ -10,4 +10,4 @@ default['provisioner']['user'] = 'root'
 # < these are the configs that will be installed based on the filder
 # names in the ~/config directory of the repository
 # >
-default['provisioner']['active_stow_dirs'] = %w(nvim oh-my-zsh tmux zsh scripts alacritty)
+default['provisioner']['active_stow_dirs'] = %w(nvim oh-my-zsh tmux zsh scripts alacritty bash unified_shell)

@@ -50,6 +50,12 @@ require('packer').startup(function(use)
   use 'L3MON4D3/LuaSnip'                -- Snippets engine
   use 't9md/vim-chef'                   -- Chef syntax highlighting
   use 'honza/vim-snippets'              -- Snippets collection
+  use {                                 -- completions for : commands
+    'gelguy/wilder.nvim',
+    config = function()
+      -- config goes here
+    end,
+  }
 
   use {
     'ray-x/go.nvim',
@@ -91,7 +97,6 @@ require('packer').startup(function(use)
 
   -- Debugging & Testing
   use 'mfussenegger/nvim-dap'           -- Debug Adapter Protocol
-  use 'rcarriga/nvim-dap-ui'            -- Debugger UI
   use 'theHamsta/nvim-dap-virtual-text' -- Debugger virtual text
   use 'aquasecurity/vim-tfsec'          -- A plugin that provides Terraform security linting.
 
@@ -103,6 +108,16 @@ require('packer').startup(function(use)
   use 'echasnovski/mini.icons'          -- Provides icons for Neovim's Mini plugin suite.
   use 'DaikyXendo/nvim-material-icon'   -- A plugin that provides Material Design icons for Neovim.
   use 'jlanzarotta/bufexplorer'         -- A plugin for easily switching between open buffers.
+  use {
+    "folke/trouble.nvim",
+    requires = "nvim-tree/nvim-web-devicons",
+    config = function()
+      require("trouble").setup({})
+    end
+  }
+
+  -- Config customizations
+  use "folke/neoconf.nvim"
 
   -- Fuzzy Finder and Search
   use {
@@ -137,6 +152,17 @@ require('packer').startup(function(use)
   use 'catppuccin/nvim'                   -- Color scheme
   use 'sbulav/telescope-terraform.nvim'   -- Terraform telescope extension
   use 'stevearc/oil.nvim'                 -- File management and preview
+  use {
+    "folke/which-key.nvim",
+    config = function()
+      require("which-key").setup({
+        -- You can add options here
+        window = {
+          border = "single", -- or "double", "rounded"
+        },
+      })
+    end
+  }
 
   -- Copilot-CMP (lets Copilot suggestions show in completion menu)
   use {

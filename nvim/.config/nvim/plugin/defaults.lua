@@ -48,6 +48,11 @@ vim.api.nvim_set_keymap('v', '<Tab>', '%', { noremap = true })
 vim.o.listchars = 'tab:▸\\ ,eol:¬'
 vim.cmd([[autocmd FocusLost * :wa]])
 vim.cmd([[filetype plugin indent on]])
+vim.opt.winborder = 'rounded'
+
+-- copy/paste
+vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
+vim.keymap.set("n", "<leader>Y", [["+Y]])
 
 -- pane navigation
 vim.api.nvim_set_keymap('n', '<C-J>', '<C-W><C-J>', { noremap = true })
@@ -57,4 +62,3 @@ vim.api.nvim_set_keymap('n', '<C-H>', '<C-W><C-H>', { noremap = true })
 
 -- Make tabs, trailing whitespace, and non-breaking spaces visible
 --vim.o.listchars = 'tab:\\uBB\\uBB,trail:\\uB7,nbsp:~'
-

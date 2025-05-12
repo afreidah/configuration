@@ -1,7 +1,7 @@
 # ~/.shell_shared - Universal shell config for Bash/Zsh on Linux/macOS
 
 # --- PATH Setup ---
-export PATH="/Users/alexfreidah/.nvm/versions/node/v22.15.0/bin:/Users/alexfreidah/.rvm/gems/ruby-3.3.6/bin:/Users/alexfreidah/.rvm/gems/ruby-3.3.6@global/bin:/Users/alexfreidah/.rvm/rubies/ruby-3.3.6/bin:/opt/homebrew/anaconda3/bin:/opt/homebrew/opt/mysql-client/bin:/Users/AlexFreidah/utilities:/opt/homebrew/opt/libpq/bin:/opt/homebrew/anaconda3/bin:/opt/local/bin:/Users/alexfreidah/.chefdk/gem/ruby/2.1.0/bin:/opt/chefdk/bin:/opt/homebrew/opt/ruby@3.1/bin:/Users/alexfreidah/.local/share/gem/ruby/3.3.0/bin:/Users/alexfreidah/.local/bin:/Users/alexfreidah/.tfenv/bin:/Users/AlexFreidah/tools:/Users/AlexFreidah/.mynav:/Applications/SnowSQL.app/Contents/MacOS:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/usr/local/munki:/Users/alexfreidah/.local/bin:/Users/alexfreidah/.rvm/gems/ruby-3.3.6/bin:/Users/alexfreidah/.rvm/gems/ruby-3.3.6@global/bin:/Users/alexfreidah/.rvm/rubies/ruby-3.3.6/bin:/Users/alexfreidah/.rvm/bin:/opt/homebrew/anaconda3/bin:/opt/homebrew/opt/mysql-client/bin:/Users/AlexFreidah/utilities:/opt/homebrew/opt/libpq/bin:/opt/local/bin:/Users/alexfreidah/.chefdk/gem/ruby/2.1.0/bin:/opt/chefdk/bin:/opt/homebrew/opt/ruby@3.1/bin:/Users/alexfreidah/.local/share/gem/ruby/3.3.0/bin:/Users/alexfreidah/.tfenv/bin:/Users/AlexFreidah/tools:/Users/AlexFreidah/.mynav:/Applications/SnowSQL.app/Contents/MacOS:/Users/alexfreidah/go/bin:/Users/alexfreidah/.local/share/nvim/site/pack/packer/start/fzf/bin:/Users/alexfreidah/go/bin:/Users/alexfreidah/.rvm/bin"
+export PATH="/Users/AlexFreidah/.nvm/versions/node/v22.15.0/bin:/Users/alexfreidah/.rvm/gems/ruby-3.3.6/bin:/Users/alexfreidah/.rvm/gems/ruby-3.3.6@global/bin:/Users/alexfreidah/.rvm/rubies/ruby-3.3.6/bin:/opt/homebrew/anaconda3/bin:/opt/homebrew/opt/mysql-client/bin:/Users/AlexFreidah/utilities:/opt/homebrew/opt/libpq/bin:/opt/homebrew/anaconda3/bin:/opt/local/bin:/Users/alexfreidah/.chefdk/gem/ruby/2.1.0/bin:/opt/chefdk/bin:/opt/homebrew/opt/ruby@3.1/bin:/Users/alexfreidah/.local/share/gem/ruby/3.3.0/bin:/Users/alexfreidah/.local/bin:/Users/alexfreidah/.tfenv/bin:/Users/AlexFreidah/tools:/Users/AlexFreidah/.mynav:/Applications/SnowSQL.app/Contents/MacOS:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/usr/local/munki:/Users/alexfreidah/.local/bin:/Users/alexfreidah/.rvm/gems/ruby-3.3.6/bin:/Users/alexfreidah/.rvm/gems/ruby-3.3.6@global/bin:/Users/alexfreidah/.rvm/rubies/ruby-3.3.6/bin:/Users/alexfreidah/.rvm/bin:/opt/homebrew/anaconda3/bin:/opt/homebrew/opt/mysql-client/bin:/Users/AlexFreidah/utilities:/opt/homebrew/opt/libpq/bin:/opt/local/bin:/Users/alexfreidah/.chefdk/gem/ruby/2.1.0/bin:/opt/chefdk/bin:/opt/homebrew/opt/ruby@3.1/bin:/Users/alexfreidah/.local/share/gem/ruby/3.3.0/bin:/Users/alexfreidah/.tfenv/bin:/Users/AlexFreidah/tools:/Users/AlexFreidah/.mynav:/Applications/SnowSQL.app/Contents/MacOS:/Users/alexfreidah/go/bin:/Users/alexfreidah/.local/share/nvim/site/pack/packer/start/fzf/bin:/Users/alexfreidah/go/bin:/Users/alexfreidah/.rvm/bin"
 
 # --- Aliases ---
 alias ls="ls -ltrG"
@@ -13,6 +13,7 @@ alias zshconfig="vim ~/.zshrc"
 alias be="bundle exec"
 alias cat="pygmentize -f terminal256 -O style=native -g"
 alias egrep="egrep -i --color=\"always\""
+alias psf="ps aux | fzf"
 
 # Copilot Aliases
 alias ghe="gh copilot explain"
@@ -59,7 +60,8 @@ export AWS_PROFILE=default-mfa
 export AWS_DEFAULT_REGION=us-west-2
 export GOPATH=~/go
 export PATH="$PATH:$GOPATH/bin"
-export TERRAGRUNT_DOWNLOAD=/tmp/terragrunt_caches
+export TG_DOWNLOAD_DIR=/tmp/terragrunt_caches
+export TG_TF_FORWARD_STDOUT=true
 export PACKER_SSH_KEY="$HOME/.ssh/id_rsa"
 export NVM_DIR="$HOME/.nvm"
 
@@ -80,3 +82,6 @@ case "$(uname)" in
   Darwin) [ -f ~/.shell_osx ] && source ~/.shell_osx ;;
   Linux) [ -f ~/.shell_linux ]] && source ~/.shell_linux ;;
 esac
+
+# stuff
+export CHEF_SSL_CA_FILE="$(brew --prefix ca-certificates)/share/ca-certificates/cacert.pem"

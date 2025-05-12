@@ -126,7 +126,7 @@ _G.packer_plugins = {
   },
   ["copilot.lua"] = {
     after = { "copilot-cmp" },
-    config = { "\27LJ\2\n²\2\0\0\5\0\f\0\0156\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\6\0005\3\3\0005\4\4\0=\4\5\3=\3\a\0025\3\b\0=\3\t\0025\3\n\0=\3\v\2B\0\2\1K\0\1\0\14filetypes\1\0\3\6*\2\14gitcommit\2\rmarkdown\2\npanel\1\0\2\17auto_refresh\2\fenabled\2\15suggestion\1\0\3\15suggestion\0\14filetypes\0\npanel\0\vkeymap\1\0\4\fdismiss\n<C-]>\vaccept\n<C-l>\tnext\n<C-n>\tprev\n<C-p>\1\0\4\vkeymap\0\rdebounce\3K\17auto_trigger\2\fenabled\2\nsetup\fcopilot\frequire\0" },
+    config = { "\27LJ\2\n²\2\0\0\5\0\f\0\0156\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\6\0005\3\3\0005\4\4\0=\4\5\3=\3\a\0025\3\b\0=\3\t\0025\3\n\0=\3\v\2B\0\2\1K\0\1\0\14filetypes\1\0\3\6*\2\14gitcommit\2\rmarkdown\2\npanel\1\0\2\17auto_refresh\2\fenabled\2\15suggestion\1\0\3\15suggestion\0\14filetypes\0\npanel\0\vkeymap\1\0\4\fdismiss\n<C-]>\vaccept\n<C-l>\tprev\n<C-p>\tnext\n<C-n>\1\0\4\vkeymap\0\rdebounce\3K\17auto_trigger\2\fenabled\2\nsetup\fcopilot\frequire\0" },
     loaded = false,
     needs_bufread = false,
     only_cond = false,
@@ -144,7 +144,7 @@ _G.packer_plugins = {
     url = "https://github.com/junegunn/fzf.vim"
   },
   ["go.nvim"] = {
-    config = { "\27LJ\2\n·\1\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\0\t\14goimports\ngopls\14dap_debug\2\18lsp_on_attach\2\16lsp_gofumpt\2\flsp_cfg\2\rtest_dir\5\24comment_placeholder\v î˜§  \18tag_transform\1\ngofmt\ngopls\nsetup\ago\frequire\0" },
+    config = { "\27LJ\2\n·\1\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\0\t\16lsp_gofumpt\2\flsp_cfg\2\rtest_dir\5\24comment_placeholder\v î˜§  \18tag_transform\1\ngofmt\ngopls\14goimports\ngopls\14dap_debug\2\18lsp_on_attach\2\nsetup\ago\frequire\0" },
     loaded = true,
     path = "/Users/alexfreidah/.local/share/nvim/site/pack/packer/start/go.nvim",
     url = "https://github.com/ray-x/go.nvim"
@@ -344,30 +344,10 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: toggleterm.nvim
-time([[Config for toggleterm.nvim]], true)
-try_loadstring("\27LJ\2\nÓ\1\0\0\4\0\5\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0004\3\0\0=\3\4\2B\0\2\1K\0\1\0\20shade_filetypes\1\0\b\20shade_filetypes\0\14direction\nfloat\17open_mapping\n<c-\\>\tsize\3\20\17persist_size\2\20start_in_insert\2\19shading_factor\3\2\20shade_terminals\2\nsetup\15toggleterm\frequire\0", "config", "toggleterm.nvim")
-time([[Config for toggleterm.nvim]], false)
--- Config for: telescope-luasnip.nvim
-time([[Config for telescope-luasnip.nvim]], true)
-try_loadstring("\27LJ\2\nŒ\1\0\0\3\0\6\0\0166\0\0\0'\2\1\0B\0\2\0029\0\2\0'\2\3\0B\0\2\0016\0\0\0'\2\1\0B\0\2\0029\0\2\0'\2\4\0B\0\2\0016\0\0\0'\2\5\0B\0\2\1K\0\1\0\22telescope.builtin\14terraform\fluasnip\19load_extension\14telescope\frequire\0", "config", "telescope-luasnip.nvim")
-time([[Config for telescope-luasnip.nvim]], false)
--- Config for: trouble.nvim
-time([[Config for trouble.nvim]], true)
-try_loadstring("\27LJ\2\n9\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\ftrouble\frequire\0", "config", "trouble.nvim")
-time([[Config for trouble.nvim]], false)
--- Config for: CopilotChat.nvim
-time([[Config for CopilotChat.nvim]], true)
-try_loadstring("\27LJ\2\n‡\1\0\0\4\0\6\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\2B\0\2\1K\0\1\0\vwindow\1\0\1\vwindow\0\1\0\4\vheight\3\20\nwidth\3x\vlayout\nfloat\vborder\frounded\nsetup\16copilotchat\frequire\0", "config", "CopilotChat.nvim")
-time([[Config for CopilotChat.nvim]], false)
 -- Config for: which-key.nvim
 time([[Config for which-key.nvim]], true)
 try_loadstring("\27LJ\2\nf\0\0\4\0\6\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\2B\0\2\1K\0\1\0\vwindow\1\0\1\vwindow\0\1\0\1\vborder\vsingle\nsetup\14which-key\frequire\0", "config", "which-key.nvim")
 time([[Config for which-key.nvim]], false)
--- Config for: go.nvim
-time([[Config for go.nvim]], true)
-try_loadstring("\27LJ\2\n·\1\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\0\t\14goimports\ngopls\14dap_debug\2\18lsp_on_attach\2\16lsp_gofumpt\2\flsp_cfg\2\rtest_dir\5\24comment_placeholder\v î˜§  \18tag_transform\1\ngofmt\ngopls\nsetup\ago\frequire\0", "config", "go.nvim")
-time([[Config for go.nvim]], false)
 -- Config for: mason.nvim
 time([[Config for mason.nvim]], true)
 try_loadstring("\27LJ\2\n3\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\nmason\frequire\0", "config", "mason.nvim")
@@ -380,6 +360,26 @@ time([[Config for telescope.nvim]], false)
 time([[Config for wilder.nvim]], true)
 try_loadstring("\27LJ\2\n\v\0\0\1\0\0\0\1K\0\1\0\0", "config", "wilder.nvim")
 time([[Config for wilder.nvim]], false)
+-- Config for: CopilotChat.nvim
+time([[Config for CopilotChat.nvim]], true)
+try_loadstring("\27LJ\2\n‡\1\0\0\4\0\6\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\2B\0\2\1K\0\1\0\vwindow\1\0\1\vwindow\0\1\0\4\vheight\3\20\nwidth\3x\vlayout\nfloat\vborder\frounded\nsetup\16copilotchat\frequire\0", "config", "CopilotChat.nvim")
+time([[Config for CopilotChat.nvim]], false)
+-- Config for: go.nvim
+time([[Config for go.nvim]], true)
+try_loadstring("\27LJ\2\n·\1\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\0\t\16lsp_gofumpt\2\flsp_cfg\2\rtest_dir\5\24comment_placeholder\v î˜§  \18tag_transform\1\ngofmt\ngopls\14goimports\ngopls\14dap_debug\2\18lsp_on_attach\2\nsetup\ago\frequire\0", "config", "go.nvim")
+time([[Config for go.nvim]], false)
+-- Config for: toggleterm.nvim
+time([[Config for toggleterm.nvim]], true)
+try_loadstring("\27LJ\2\nÓ\1\0\0\4\0\5\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0004\3\0\0=\3\4\2B\0\2\1K\0\1\0\20shade_filetypes\1\0\b\20shade_filetypes\0\14direction\nfloat\17open_mapping\n<c-\\>\tsize\3\20\17persist_size\2\20start_in_insert\2\19shading_factor\3\2\20shade_terminals\2\nsetup\15toggleterm\frequire\0", "config", "toggleterm.nvim")
+time([[Config for toggleterm.nvim]], false)
+-- Config for: trouble.nvim
+time([[Config for trouble.nvim]], true)
+try_loadstring("\27LJ\2\n9\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\ftrouble\frequire\0", "config", "trouble.nvim")
+time([[Config for trouble.nvim]], false)
+-- Config for: telescope-luasnip.nvim
+time([[Config for telescope-luasnip.nvim]], true)
+try_loadstring("\27LJ\2\nŒ\1\0\0\3\0\6\0\0166\0\0\0'\2\1\0B\0\2\0029\0\2\0'\2\3\0B\0\2\0016\0\0\0'\2\1\0B\0\2\0029\0\2\0'\2\4\0B\0\2\0016\0\0\0'\2\5\0B\0\2\1K\0\1\0\22telescope.builtin\14terraform\fluasnip\19load_extension\14telescope\frequire\0", "config", "telescope-luasnip.nvim")
+time([[Config for telescope-luasnip.nvim]], false)
 vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]
   -- Event lazy-loads

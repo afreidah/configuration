@@ -95,11 +95,6 @@ _G.packer_plugins = {
     path = "/Users/alexfreidah/.local/share/nvim/site/pack/packer/start/bufferline.nvim",
     url = "https://github.com/akinsho/bufferline.nvim"
   },
-  chadtree = {
-    loaded = true,
-    path = "/Users/alexfreidah/.local/share/nvim/site/pack/packer/start/chadtree",
-    url = "https://github.com/ms-jpq/chadtree"
-  },
   ["cmp-buffer"] = {
     loaded = true,
     path = "/Users/alexfreidah/.local/share/nvim/site/pack/packer/start/cmp-buffer",
@@ -131,12 +126,17 @@ _G.packer_plugins = {
   },
   ["copilot.lua"] = {
     after = { "copilot-cmp" },
-    config = { "\27LJ\2\n≤\2\0\0\5\0\f\0\0156\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\6\0005\3\3\0005\4\4\0=\4\5\3=\3\a\0025\3\b\0=\3\t\0025\3\n\0=\3\v\2B\0\2\1K\0\1\0\14filetypes\1\0\3\14gitcommit\2\rmarkdown\2\6*\2\npanel\1\0\2\17auto_refresh\2\fenabled\2\15suggestion\1\0\3\npanel\0\14filetypes\0\15suggestion\0\vkeymap\1\0\4\vaccept\n<C-l>\tprev\n<C-p>\fdismiss\n<C-]>\tnext\n<C-n>\1\0\4\17auto_trigger\2\fenabled\2\vkeymap\0\rdebounce\3K\nsetup\fcopilot\frequire\0" },
+    config = { "\27LJ\2\n≤\2\0\0\5\0\f\0\0156\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\6\0005\3\3\0005\4\4\0=\4\5\3=\3\a\0025\3\b\0=\3\t\0025\3\n\0=\3\v\2B\0\2\1K\0\1\0\14filetypes\1\0\3\rmarkdown\2\6*\2\14gitcommit\2\npanel\1\0\2\fenabled\2\17auto_refresh\2\15suggestion\1\0\3\14filetypes\0\15suggestion\0\npanel\0\vkeymap\1\0\4\fdismiss\n<C-]>\tnext\n<C-n>\vaccept\n<C-l>\tprev\n<C-p>\1\0\4\fenabled\2\vkeymap\0\rdebounce\3K\17auto_trigger\2\nsetup\fcopilot\frequire\0" },
     loaded = false,
     needs_bufread = false,
     only_cond = false,
     path = "/Users/alexfreidah/.local/share/nvim/site/pack/packer/opt/copilot.lua",
     url = "https://github.com/zbirenbaum/copilot.lua"
+  },
+  ["deoplete.nvim"] = {
+    loaded = true,
+    path = "/Users/alexfreidah/.local/share/nvim/site/pack/packer/start/deoplete.nvim",
+    url = "https://github.com/Shougo/deoplete.nvim"
   },
   fzf = {
     loaded = true,
@@ -153,11 +153,6 @@ _G.packer_plugins = {
     path = "/Users/alexfreidah/.local/share/nvim/site/pack/packer/start/guihua.lua",
     url = "https://github.com/ray-x/guihua.lua"
   },
-  ["image.nvim"] = {
-    loaded = true,
-    path = "/Users/alexfreidah/.local/share/nvim/site/pack/packer/start/image.nvim",
-    url = "https://github.com/3rd/image.nvim"
-  },
   indentLine = {
     loaded = true,
     path = "/Users/alexfreidah/.local/share/nvim/site/pack/packer/start/indentLine",
@@ -167,6 +162,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/alexfreidah/.local/share/nvim/site/pack/packer/start/lualine.nvim",
     url = "https://github.com/nvim-lualine/lualine.nvim"
+  },
+  ["mason-lspconfig.nvim"] = {
+    loaded = true,
+    path = "/Users/alexfreidah/.local/share/nvim/site/pack/packer/start/mason-lspconfig.nvim",
+    url = "https://github.com/mason-org/mason-lspconfig.nvim"
   },
   ["mason.nvim"] = {
     config = { "\27LJ\2\n3\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\nmason\frequire\0" },
@@ -179,11 +179,6 @@ _G.packer_plugins = {
     path = "/Users/alexfreidah/.local/share/nvim/site/pack/packer/start/mini.icons",
     url = "https://github.com/echasnovski/mini.icons"
   },
-  ["neo-tree.nvim"] = {
-    loaded = true,
-    path = "/Users/alexfreidah/.local/share/nvim/site/pack/packer/start/neo-tree.nvim",
-    url = "https://github.com/nvim-neo-tree/neo-tree.nvim"
-  },
   ["neoconf.nvim"] = {
     loaded = true,
     path = "/Users/alexfreidah/.local/share/nvim/site/pack/packer/start/neoconf.nvim",
@@ -194,30 +189,30 @@ _G.packer_plugins = {
     path = "/Users/alexfreidah/.local/share/nvim/site/pack/packer/start/neogit",
     url = "https://github.com/neogitorg/neogit"
   },
+  neomake = {
+    loaded = true,
+    path = "/Users/alexfreidah/.local/share/nvim/site/pack/packer/start/neomake",
+    url = "https://github.com/neomake/neomake"
+  },
+  neotest = {
+    loaded = true,
+    path = "/Users/alexfreidah/.local/share/nvim/site/pack/packer/start/neotest",
+    url = "https://github.com/nvim-neotest/neotest"
+  },
+  ["neotest-rspec"] = {
+    loaded = true,
+    path = "/Users/alexfreidah/.local/share/nvim/site/pack/packer/start/neotest-rspec",
+    url = "https://github.com/olimorris/neotest-rspec"
+  },
   nerdtree = {
     loaded = true,
     path = "/Users/alexfreidah/.local/share/nvim/site/pack/packer/start/nerdtree",
     url = "https://github.com/preservim/nerdtree"
   },
-  ["nerdtree-buffer-ops"] = {
-    loaded = true,
-    path = "/Users/alexfreidah/.local/share/nvim/site/pack/packer/start/nerdtree-buffer-ops",
-    url = "https://github.com/PhilRunninger/nerdtree-buffer-ops"
-  },
   ["nerdtree-git-plugin"] = {
     loaded = true,
     path = "/Users/alexfreidah/.local/share/nvim/site/pack/packer/start/nerdtree-git-plugin",
     url = "https://github.com/Xuyuanp/nerdtree-git-plugin"
-  },
-  ["nui.nvim"] = {
-    loaded = true,
-    path = "/Users/alexfreidah/.local/share/nvim/site/pack/packer/start/nui.nvim",
-    url = "https://github.com/MunifTanjim/nui.nvim"
-  },
-  ["null-ls.nvim"] = {
-    loaded = true,
-    path = "/Users/alexfreidah/.local/share/nvim/site/pack/packer/start/null-ls.nvim",
-    url = "https://github.com/jose-elias-alvarez/null-ls.nvim"
   },
   nvim = {
     loaded = true,
@@ -254,10 +249,10 @@ _G.packer_plugins = {
     path = "/Users/alexfreidah/.local/share/nvim/site/pack/packer/start/nvim-material-icon",
     url = "https://github.com/DaikyXendo/nvim-material-icon"
   },
-  ["nvim-ruby-lsp"] = {
+  ["nvim-nio"] = {
     loaded = true,
-    path = "/Users/alexfreidah/.local/share/nvim/site/pack/packer/start/nvim-ruby-lsp",
-    url = "https://github.com/mihyaeru21/nvim-ruby-lsp"
+    path = "/Users/alexfreidah/.local/share/nvim/site/pack/packer/start/nvim-nio",
+    url = "https://github.com/nvim-neotest/nvim-nio"
   },
   ["nvim-treesitter"] = {
     loaded = true,
@@ -269,15 +264,15 @@ _G.packer_plugins = {
     path = "/Users/alexfreidah/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
     url = "https://github.com/nvim-tree/nvim-web-devicons"
   },
+  ["nvim-yarp"] = {
+    loaded = true,
+    path = "/Users/alexfreidah/.local/share/nvim/site/pack/packer/start/nvim-yarp",
+    url = "https://github.com/roxma/nvim-yarp"
+  },
   ["oil.nvim"] = {
     loaded = true,
     path = "/Users/alexfreidah/.local/share/nvim/site/pack/packer/start/oil.nvim",
     url = "https://github.com/stevearc/oil.nvim"
-  },
-  ["packer.nvim"] = {
-    loaded = true,
-    path = "/Users/alexfreidah/.local/share/nvim/site/pack/packer/start/packer.nvim",
-    url = "https://github.com/wbthomason/packer.nvim"
   },
   ["plenary.nvim"] = {
     loaded = true,
@@ -288,6 +283,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/alexfreidah/.local/share/nvim/site/pack/packer/start/popup.nvim",
     url = "https://github.com/nvim-lua/popup.nvim"
+  },
+  syntastic = {
+    loaded = true,
+    path = "/Users/alexfreidah/.local/share/nvim/site/pack/packer/start/syntastic",
+    url = "https://github.com/vim-syntastic/syntastic"
   },
   tagbar = {
     loaded = true,
@@ -326,8 +326,13 @@ _G.packer_plugins = {
     path = "/Users/alexfreidah/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
   },
+  tlib_vim = {
+    loaded = true,
+    path = "/Users/alexfreidah/.local/share/nvim/site/pack/packer/start/tlib_vim",
+    url = "https://github.com/tomtom/tlib_vim"
+  },
   ["toggleterm.nvim"] = {
-    config = { "\27LJ\2\n”\1\0\0\4\0\5\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0004\3\0\0=\3\4\2B\0\2\1K\0\1\0\20shade_filetypes\1\0\b\17persist_size\2\20start_in_insert\2\19shading_factor\3\2\20shade_terminals\2\20shade_filetypes\0\14direction\nfloat\17open_mapping\n<c-\\>\tsize\3\20\nsetup\15toggleterm\frequire\0" },
+    config = { "\27LJ\2\n”\1\0\0\4\0\5\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0004\3\0\0=\3\4\2B\0\2\1K\0\1\0\20shade_filetypes\1\0\b\17open_mapping\n<c-\\>\tsize\3\20\17persist_size\2\20start_in_insert\2\19shading_factor\3\2\20shade_terminals\2\20shade_filetypes\0\14direction\nfloat\nsetup\15toggleterm\frequire\0" },
     loaded = true,
     path = "/Users/alexfreidah/.local/share/nvim/site/pack/packer/start/toggleterm.nvim",
     url = "https://github.com/akinsho/toggleterm.nvim"
@@ -338,15 +343,15 @@ _G.packer_plugins = {
     path = "/Users/alexfreidah/.local/share/nvim/site/pack/packer/start/trouble.nvim",
     url = "https://github.com/folke/trouble.nvim"
   },
+  ["vim-addon-mw-utils"] = {
+    loaded = true,
+    path = "/Users/alexfreidah/.local/share/nvim/site/pack/packer/start/vim-addon-mw-utils",
+    url = "https://github.com/MarcWeber/vim-addon-mw-utils"
+  },
   ["vim-chef"] = {
     loaded = true,
     path = "/Users/alexfreidah/.local/share/nvim/site/pack/packer/start/vim-chef",
     url = "https://github.com/t9md/vim-chef"
-  },
-  ["vim-cool"] = {
-    loaded = true,
-    path = "/Users/alexfreidah/.local/share/nvim/site/pack/packer/start/vim-cool",
-    url = "https://github.com/romainl/vim-cool"
   },
   ["vim-devicons"] = {
     loaded = true,
@@ -363,20 +368,40 @@ _G.packer_plugins = {
     path = "/Users/alexfreidah/.local/share/nvim/site/pack/packer/start/vim-gitgutter",
     url = "https://github.com/airblade/vim-gitgutter"
   },
+  ["vim-hug-neovim-rpc"] = {
+    loaded = true,
+    path = "/Users/alexfreidah/.local/share/nvim/site/pack/packer/start/vim-hug-neovim-rpc",
+    url = "https://github.com/roxma/vim-hug-neovim-rpc"
+  },
   ["vim-nerdtree-syntax-highlight"] = {
     loaded = true,
     path = "/Users/alexfreidah/.local/share/nvim/site/pack/packer/start/vim-nerdtree-syntax-highlight",
     url = "https://github.com/tiagofumo/vim-nerdtree-syntax-highlight"
+  },
+  ["vim-ruby"] = {
+    loaded = true,
+    path = "/Users/alexfreidah/.local/share/nvim/site/pack/packer/start/vim-ruby",
+    url = "https://github.com/vim-ruby/vim-ruby"
+  },
+  ["vim-snipmate"] = {
+    loaded = true,
+    path = "/Users/alexfreidah/.local/share/nvim/site/pack/packer/start/vim-snipmate",
+    url = "https://github.com/garbas/vim-snipmate"
   },
   ["vim-snippets"] = {
     loaded = true,
     path = "/Users/alexfreidah/.local/share/nvim/site/pack/packer/start/vim-snippets",
     url = "https://github.com/honza/vim-snippets"
   },
-  ["vim-startuptime"] = {
+  ["vim-terraform"] = {
     loaded = true,
-    path = "/Users/alexfreidah/.local/share/nvim/site/pack/packer/start/vim-startuptime",
-    url = "https://github.com/dstein64/vim-startuptime"
+    path = "/Users/alexfreidah/.local/share/nvim/site/pack/packer/start/vim-terraform",
+    url = "https://github.com/hashivim/vim-terraform"
+  },
+  ["vim-terraform-completion"] = {
+    loaded = true,
+    path = "/Users/alexfreidah/.local/share/nvim/site/pack/packer/start/vim-terraform-completion",
+    url = "https://github.com/juliosueiras/vim-terraform-completion"
   },
   ["vim-tfsec"] = {
     loaded = true,
@@ -389,7 +414,7 @@ _G.packer_plugins = {
     url = "https://github.com/liuchengxu/vista.vim"
   },
   ["which-key.nvim"] = {
-    config = { "\27LJ\2\na\0\0\4\0\6\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\2B\0\2\1K\0\1\0\bwin\1\0\1\bwin\0\1\0\1\vborder\frounded\nsetup\14which-key\frequire\0" },
+    config = { "\27LJ\2\nf\0\0\4\0\6\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\2B\0\2\1K\0\1\0\vwindow\1\0\1\vwindow\0\1\0\1\vborder\vsingle\nsetup\14which-key\frequire\0" },
     loaded = true,
     path = "/Users/alexfreidah/.local/share/nvim/site/pack/packer/start/which-key.nvim",
     url = "https://github.com/folke/which-key.nvim"
@@ -403,10 +428,6 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: CopilotChat.nvim
-time([[Config for CopilotChat.nvim]], true)
-try_loadstring("\27LJ\2\ná\1\0\0\4\0\6\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\2B\0\2\1K\0\1\0\vwindow\1\0\1\vwindow\0\1\0\4\vborder\frounded\vheight\3\20\nwidth\3x\vlayout\nfloat\nsetup\16copilotchat\frequire\0", "config", "CopilotChat.nvim")
-time([[Config for CopilotChat.nvim]], false)
 -- Config for: telescope-luasnip.nvim
 time([[Config for telescope-luasnip.nvim]], true)
 try_loadstring("\27LJ\2\nå\1\0\0\3\0\6\0\0166\0\0\0'\2\1\0B\0\2\0029\0\2\0'\2\3\0B\0\2\0016\0\0\0'\2\1\0B\0\2\0029\0\2\0'\2\4\0B\0\2\0016\0\0\0'\2\5\0B\0\2\1K\0\1\0\22telescope.builtin\14terraform\fluasnip\19load_extension\14telescope\frequire\0", "config", "telescope-luasnip.nvim")
@@ -415,26 +436,30 @@ time([[Config for telescope-luasnip.nvim]], false)
 time([[Config for wilder.nvim]], true)
 try_loadstring("\27LJ\2\n\v\0\0\1\0\0\0\1K\0\1\0\0", "config", "wilder.nvim")
 time([[Config for wilder.nvim]], false)
--- Config for: trouble.nvim
-time([[Config for trouble.nvim]], true)
-try_loadstring("\27LJ\2\n9\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\ftrouble\frequire\0", "config", "trouble.nvim")
-time([[Config for trouble.nvim]], false)
--- Config for: toggleterm.nvim
-time([[Config for toggleterm.nvim]], true)
-try_loadstring("\27LJ\2\n”\1\0\0\4\0\5\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0004\3\0\0=\3\4\2B\0\2\1K\0\1\0\20shade_filetypes\1\0\b\17persist_size\2\20start_in_insert\2\19shading_factor\3\2\20shade_terminals\2\20shade_filetypes\0\14direction\nfloat\17open_mapping\n<c-\\>\tsize\3\20\nsetup\15toggleterm\frequire\0", "config", "toggleterm.nvim")
-time([[Config for toggleterm.nvim]], false)
+-- Config for: CopilotChat.nvim
+time([[Config for CopilotChat.nvim]], true)
+try_loadstring("\27LJ\2\ná\1\0\0\4\0\6\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\2B\0\2\1K\0\1\0\vwindow\1\0\1\vwindow\0\1\0\4\vborder\frounded\vheight\3\20\nwidth\3x\vlayout\nfloat\nsetup\16copilotchat\frequire\0", "config", "CopilotChat.nvim")
+time([[Config for CopilotChat.nvim]], false)
 -- Config for: mason.nvim
 time([[Config for mason.nvim]], true)
 try_loadstring("\27LJ\2\n3\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\nmason\frequire\0", "config", "mason.nvim")
 time([[Config for mason.nvim]], false)
+-- Config for: toggleterm.nvim
+time([[Config for toggleterm.nvim]], true)
+try_loadstring("\27LJ\2\n”\1\0\0\4\0\5\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0004\3\0\0=\3\4\2B\0\2\1K\0\1\0\20shade_filetypes\1\0\b\17open_mapping\n<c-\\>\tsize\3\20\17persist_size\2\20start_in_insert\2\19shading_factor\3\2\20shade_terminals\2\20shade_filetypes\0\14direction\nfloat\nsetup\15toggleterm\frequire\0", "config", "toggleterm.nvim")
+time([[Config for toggleterm.nvim]], false)
+-- Config for: which-key.nvim
+time([[Config for which-key.nvim]], true)
+try_loadstring("\27LJ\2\nf\0\0\4\0\6\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\2B\0\2\1K\0\1\0\vwindow\1\0\1\vwindow\0\1\0\1\vborder\vsingle\nsetup\14which-key\frequire\0", "config", "which-key.nvim")
+time([[Config for which-key.nvim]], false)
 -- Config for: telescope.nvim
 time([[Config for telescope.nvim]], true)
 try_loadstring("\27LJ\2\n™\1\0\0\5\0\b\0\0176\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\5\0005\3\3\0004\4\0\0=\4\4\3=\3\6\2B\0\2\0016\0\0\0'\2\1\0B\0\2\0029\0\a\0'\2\4\0B\0\2\1K\0\1\0\19load_extension\15extensions\1\0\1\15extensions\0\17file_browser\1\0\1\17file_browser\0\nsetup\14telescope\frequire\0", "config", "telescope.nvim")
 time([[Config for telescope.nvim]], false)
--- Config for: which-key.nvim
-time([[Config for which-key.nvim]], true)
-try_loadstring("\27LJ\2\na\0\0\4\0\6\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\2B\0\2\1K\0\1\0\bwin\1\0\1\bwin\0\1\0\1\vborder\frounded\nsetup\14which-key\frequire\0", "config", "which-key.nvim")
-time([[Config for which-key.nvim]], false)
+-- Config for: trouble.nvim
+time([[Config for trouble.nvim]], true)
+try_loadstring("\27LJ\2\n9\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\ftrouble\frequire\0", "config", "trouble.nvim")
+time([[Config for trouble.nvim]], false)
 vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]
   -- Event lazy-loads

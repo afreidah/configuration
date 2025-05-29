@@ -1,0 +1,22 @@
+--require('neotest').setup({
+--  adapters = {
+--    require('neotest-rspec')({
+--      -- command to run RSpec in this project
+--      rspec_cmd = function()
+--        return { "bundle", "exec", "rspec", "--format", "documentation" }
+--      end,
+--      -- by default, use cwd() for locating specs
+--      cwd = vim.fn.getcwd,
+--    })
+--  },
+--})
+--
+--require("neotest-rspec")({
+--  rspec_cmd = function()
+--    return vim.tbl_flatten({
+--      "bundle",
+--      "exec",
+--      "rspec",
+--    })
+--  end
+--})

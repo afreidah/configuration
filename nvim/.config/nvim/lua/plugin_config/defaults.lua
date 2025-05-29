@@ -1,9 +1,11 @@
 -- General settings
 vim.opt.compatible = false
---vim.o.compatible = false
+-- vim.o.compatible = false
 vim.o.tags = "./.tags;,.tags;"
+vim.o.updatetime = 300
 vim.g.tpipeline_autoembed = 0
 vim.o.modelines = 0
+vim.bo.modifiable = true
 vim.o.autoindent = true
 vim.o.syntax = 'on'
 vim.o.laststatus = 2
@@ -62,3 +64,14 @@ vim.api.nvim_set_keymap('n', '<C-H>', '<C-W><C-H>', { noremap = true })
 
 -- Make tabs, trailing whitespace, and non-breaking spaces visible
 --vim.o.listchars = 'tab:\\uBB\\uBB,trail:\\uB7,nbsp:~'
+
+-- make sure buffers are modifiable when opened
+vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile" }, {
+  pattern = "*",
+  command = "setlocal modifiable",
+})
+
+-- for float diagnostics ---
+vim.cmd [[
+    autocmd CursorHold * lua vim.diagnostic.open_float(nil, { focusable = false })
+]]

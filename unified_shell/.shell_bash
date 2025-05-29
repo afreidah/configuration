@@ -67,7 +67,24 @@ git_prompt() {
     fi
 }
 
+# only show host if ssh to differentiate
+if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
+    if [ "$color_prompt" = yes ]; then
+        host="@\[\033[1;34m\]\h\[\033[00m\]:"
+    else
+        host=""
+    fi
+fi
+
 # Sample prompt declaration based off of the default Ubuntu 14.04.1 color
 # prompt. Tweak as you see fit, or just stick "$(git_prompt)" into your
 # favorite prompt.
-PS1='$debian_chroot\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w $(git_prompt)\[\033[00m\] $ '
+# PS1='$debian_chroot\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w $(git_prompt)\[\033[00m\] $ '
+PS1='$debian_chroot\[\033[01;32m\]\u${host} \[\033[01;34m\]\w $(git_prompt)\[\033[00m\] $ '
+
+# history stuff
+HISTSIZE=5000
+HISTFILESIZE=10000
+export HISTSIZE HISTFILESIZE HISTFILE
+
+

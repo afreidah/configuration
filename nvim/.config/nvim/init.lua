@@ -15,13 +15,49 @@ require('packer').startup(function(use)
   -- Core Plugins
   use 'nvim-lua/plenary.nvim'            -- Required by some plugins
   use 'nvim-lua/popup.nvim'              -- Popup utilities
+  use 'dstein64/vim-startuptime'       -- Startup time analysis
+
+  -- UI Enhancements
+  use 'ray-x/guihua.lua'                -- GUI support for floating terminal
+  use 'akinsho/bufferline.nvim'         -- Buffer tabs
+  use 'nvim-lualine/lualine.nvim'       -- Statusline
+  use 'windwp/nvim-autopairs'           -- Autopairs for brackets and quotes
+  use 'echasnovski/mini.icons'          -- Provides icons for Neovim's Mini plugin suite.
+  use 'DaikyXendo/nvim-material-icon'   -- A plugin that provides Material Design icons for Neovim.
+  use 'nvim-tree/nvim-web-devicons' -- File icons
+  use 'romainl/vim-cool'              -- Disables search highlighting when you start typing
+  use 'jlanzarotta/bufexplorer'         -- A plugin for easily switching between open buffers.
+  use {
+    "folke/trouble.nvim",
+    requires = "nvim-tree/nvim-web-devicons",
+    config = function()
+      require("trouble").setup({})
+    end
+  }
 
   -- Git & File Management
   use 'airblade/vim-gitgutter'           -- Git diff in the gutter
   use 'neogitorg/neogit'                 -- Git integration
   use 'preservim/tagbar'                 -- Tag viewer
   use 'liuchengxu/vista.vim'             -- Provides a tag-based viewer similar to Tagbar.
-  use 'preservim/nerdtree'               -- File explorer
+  use 'wbthomason/packer.nvim'      -- packer itself
+  use 'preservim/nerdtree'         -- the tree explorer
+  use 'ms-jpq/chadtree' -- A fast and powerful file explorer for Neovim
+  use({
+  "nvim-neo-tree/neo-tree.nvim",
+  branch = "v3.x",
+    requires = {
+      "nvim-lua/plenary.nvim",
+      "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+      "MunifTanjim/nui.nvim",
+      "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
+    }
+  })
+  use 'kyazdani42/nvim-web-devicons' -- lua icon library
+  use 'ryanoasis/vim-devicons'     -- vim icon library
+  use 'tiagofumo/vim-nerdtree-syntax-highlight' -- Syntax highlighting for NERDTree
+  use 'Xuyuanp/nerdtree-git-plugin'      -- Git integration for NERDTree
+  use 'PhilRunninger/nerdtree-buffer-ops' -- Buffer operations for NERDTree
   use 'tpope/vim-fugitive'               -- Classic git integration
   use {
   'akinsho/toggleterm.nvim',
@@ -41,7 +77,9 @@ require('packer').startup(function(use)
 }
 
   -- LSP & Completion
+  --use 'neoclide/coc.nvim' -- Intellisense engine
   use 'neovim/nvim-lspconfig'           -- LSP Config
+  use { 'mihyaeru21/nvim-ruby-lsp', requires = 'neovim/nvim-lspconfig' }
   use 'hrsh7th/nvim-cmp'                -- Autocompletion
   use 'hrsh7th/cmp-nvim-lsp'            -- LSP source for nvim-cmp
   use 'hrsh7th/cmp-buffer'              -- Buffer completions
@@ -50,28 +88,12 @@ require('packer').startup(function(use)
   use 'L3MON4D3/LuaSnip'                -- Snippets engine
   use 't9md/vim-chef'                   -- Chef syntax highlighting
   use 'honza/vim-snippets'              -- Snippets collection
+  use 'jose-elias-alvarez/null-ls.nvim' -- For formatters and linters
   use {                                 -- completions for : commands
     'gelguy/wilder.nvim',
     config = function()
       -- config goes here
     end,
-  }
-
-  use {
-    'ray-x/go.nvim',
-    config = function()
-      require('go').setup({
-        goimports = 'gopls',  -- Use gopls for goimports
-        gofmt = 'gopls',      -- Use gopls for gofmt
-        tag_transform = false, -- Don't automatically transform Go tags
-        comment_placeholder = '   ', -- Placeholder for comments in Go files
-        test_dir = '',        -- Set the test directory if needed
-        lsp_cfg = true,       -- Use nvim-lspconfig settings for go
-        lsp_gofumpt = true,   -- Enable gofumpt (gopls formatting tool)
-        lsp_on_attach = true, -- Use on_attach from go.nvim for LSP setup
-        dap_debug = true,     -- Enable debugging for Go
-      })
-    end
   }
 
   use {
@@ -99,22 +121,6 @@ require('packer').startup(function(use)
   use 'mfussenegger/nvim-dap'           -- Debug Adapter Protocol
   use 'theHamsta/nvim-dap-virtual-text' -- Debugger virtual text
   use 'aquasecurity/vim-tfsec'          -- A plugin that provides Terraform security linting.
-
-  -- UI Enhancements
-  use 'ray-x/guihua.lua'                -- GUI support for floating terminal
-  use 'akinsho/bufferline.nvim'         -- Buffer tabs
-  use 'nvim-lualine/lualine.nvim'       -- Statusline
-  use 'windwp/nvim-autopairs'           -- Autopairs for brackets and quotes
-  use 'echasnovski/mini.icons'          -- Provides icons for Neovim's Mini plugin suite.
-  use 'DaikyXendo/nvim-material-icon'   -- A plugin that provides Material Design icons for Neovim.
-  use 'jlanzarotta/bufexplorer'         -- A plugin for easily switching between open buffers.
-  use {
-    "folke/trouble.nvim",
-    requires = "nvim-tree/nvim-web-devicons",
-    config = function()
-      require("trouble").setup({})
-    end
-  }
 
   -- Config customizations
   use "folke/neoconf.nvim"
@@ -156,9 +162,8 @@ require('packer').startup(function(use)
     "folke/which-key.nvim",
     config = function()
       require("which-key").setup({
-        -- You can add options here
-        window = {
-          border = "single", -- or "double", "rounded"
+        win = {
+          border = "rounded", -- or "double", "rounded"
         },
       })
     end
@@ -200,6 +205,24 @@ require('packer').startup(function(use)
     end,
   }
 
+
+
+
+  --use 'nvim-neotest/nvim-nio'
+  --use {
+  --  'nvim-neotest/neotest',
+  --  requires = {
+  --    'nvim-lua/plenary.nvim',
+  --    'nvim-treesitter/nvim-treesitter',
+  --    'olimorris/neotest-rspec',   -- for RSpec
+  --    'nvim-neotest/neotest-go',   -- if you also want Go support
+  --  },
+  --  config = function()
+  --    -- this will only run after the plugin is loaded
+  --    require("plugin_config.neotest")
+  --  end,
+  --}
+
   -- CopilotChat (chat interface)
   use {
     "CopilotC-Nvim/CopilotChat.nvim",
@@ -218,3 +241,22 @@ require('packer').startup(function(use)
   }
 end)
 
+require("plugin_config/nerdtree")
+require("plugin_config/which-key")
+require("plugin_config/trouble")
+require("plugin_config/telescope")
+require("plugin_config/ruby-chef")
+require("plugin_config/oil")
+require("plugin_config/neogit")
+require("plugin_config/lualine")
+require("plugin_config/keybindings")
+require("plugin_config/indentline")
+require("plugin_config/gitgutter")
+require("plugin_config/defaults")
+require("plugin_config/dap")
+require("plugin_config/copilot_and_copilot_chat")
+require("plugin_config/catppuccin")
+require("plugin_config/packer_compiled")
+require("plugin_config/lsp_and_completion")
+require("plugin_config/chadtree")
+require("null-ls")

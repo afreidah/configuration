@@ -38,9 +38,6 @@ vim.keymap.set('n', '<leader>nv', ':Neogit kind=vsplit<CR>', { desc = 'Open Neog
 vim.keymap.set('n', '<leader>xx', '<cmd>Trouble diagnostics toggle<cr>', { desc = 'Toggle diagnostics in Trouble' })
 vim.keymap.set('n', '<leader>T', ':Trouble diagnostics<CR>', { desc = 'Show diagnostics in Trouble' })
 
--- NerdTree toggle
-vim.keymap.set('n', '<leader>nt', ':NERDTreeToggle<CR>', { desc = 'Toggle NerdTree', silent = true })
-
 -- Tagbar toggle
 vim.keymap.set('n', '<F8>', ':TagbarToggle<CR>', { desc = 'Toggle Tagbar', silent = true })
 
@@ -56,6 +53,33 @@ vim.keymap.set('n', 'ghs', '<Plug>(GitGutterStageHunk)', { noremap = true, silen
 vim.keymap.set('n', 'ghu', '<Plug>(GitGutterStageHunk)', { noremap = true, silent = true })
 vim.keymap.set('n', '<leader>hp', '<Plug>(GitGutterPreviewHunk)', { noremap = true, silent = true })
 
+-- Chef keybindings
+vim.keymap.set('n', '<leader>cf', ':ChefFindAny<CR>', { desc = 'ChefFindAny for under the cursor', silent = true })
+vim.keymap.set('n', '<leader>ca', ':ChefFindAttribute<CR>', { desc = 'ChefFindAttribute for under the cursor', silent = true })
+
 -- Go keybindings
 vim.keymap.set('n', '<leader>gd', ':GoDoc<CR>', { desc = 'View GoDoc under cursor', silent = true })
 vim.keymap.set('n', '<leader>gt', ':GoTestSum ./...<CR>', { desc = 'Run GoTestSum', buffer = true })
+
+-- Ruby keybindings
+vim.keymap.set('n', '<leader>tn', function()
+  require('neotest').run.run()
+end, { desc = 'Neotest: Run nearest' })
+
+-- Run all tests in current file
+vim.keymap.set('n', '<leader>tf', function()
+  require('neotest').run.run(vim.fn.expand('%'))
+end, { desc = 'Neotest: Run file' })
+
+-- Toggle the summary panel
+vim.keymap.set('n', '<leader>ts', function()
+  require('neotest').summary.toggle()
+end, { desc = 'Neotest: Summary' })
+
+-- NerdTree toggle
+vim.keymap.set('n', '<leader>nt', ':NERDTreeToggle<CR>', { desc = 'Toggle NerdTree', silent = true })
+-- replacing my Nerdtree toggle with CHAD to test it out without breaking muscle memory
+--vim.keymap.set('n', '<leader>nt', ':CHADopen<CR>', { desc = 'Toggle NerdTree', silent = true })
+
+-- Float diagnostics
+vim.keymap.set('n', 'gl', vim.diagnostic.open_float, { desc = "Show diagnostic float" })
